@@ -10,7 +10,6 @@ import NewCompetitionModal from '../modals/NewCompetitionModal';
 @inject('competitionStore')
 @observer
 export default class CompetitionScene extends Component {
-
   render() {
     const { showAddCompetitionPopup } = this.props.competitionStore;
     return (

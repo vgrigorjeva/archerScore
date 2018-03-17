@@ -100,7 +100,6 @@ const SideBarNavigator = DrawerNavigator(
 );
 
 export default class MainContainer extends Component {
-
     render() {
         return (
             <SideBarNavigator />

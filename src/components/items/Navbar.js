@@ -6,7 +6,6 @@ import styles from '../../styles/items/navbar';
 import MenuButton from '../items/buttons/MenuButton';
 
 export default class Navbar extends Component {
-
     render() {
         const { title, navigation } = this.props;
         console.log(this.props);

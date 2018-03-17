@@ -8,7 +8,6 @@ import styles from '../../styles/scenes/calendar';
 import Navbar from '../items/Navbar';
 
 export default class CalendarScene extends Component {
-
   constructor(props) {
     super(props);
     this.state = {};

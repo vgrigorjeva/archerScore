@@ -10,7 +10,6 @@ import NewTrainingModal from '../modals/NewTrainingModal';
 @inject('trainingStore')
 @observer
 export default class TrainingScene extends Component {
-
   render() {
     const { showAddTrainingPopup } = this.props.trainingStore;
     return (

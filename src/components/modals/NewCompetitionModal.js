@@ -11,7 +11,6 @@ import {
 import ModalHeader from '../items/ModalHeader';
 
 export default class NewCompetitionModal extends Component {
-
     render() {
         return (
             <View>
@@ -27,7 +26,7 @@ export default class NewCompetitionModal extends Component {
                     <Text>New competition</Text>
                     <KeyboardAvoidingView>
                         <ScrollView>
-                            <TextInput></TextInput>
+                            <TextInput />
                         </ScrollView>
                     </KeyboardAvoidingView>
                     </View>

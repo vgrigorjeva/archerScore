@@ -5,14 +5,12 @@ import {
     Text,
     KeyboardAvoidingView,
     ScrollView,
-    StatusBar,
     TextInput
 } from 'react-native';
 
 import ModalHeader from '../items/ModalHeader';
 
 export default class NewTrainingModal extends Component {
-
     render() {
         return (
             <View>
@@ -28,7 +26,7 @@ export default class NewTrainingModal extends Component {
                     <Text>New training</Text>
                     <KeyboardAvoidingView>
                         <ScrollView>
-                            <TextInput></TextInput>
+                            <TextInput />
                         </ScrollView>
                     </KeyboardAvoidingView>
                     </View>

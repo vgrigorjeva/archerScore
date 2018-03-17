@@ -6,7 +6,6 @@ import styles from '../../styles/scenes/statistics';
 import Navbar from '../items/Navbar';
 
 export default class StatisticsScene extends Component {
-
   render() {
     return (
       <View style={generalStyles.sceneContainer}>

@@ -7,11 +7,8 @@ import DoneButton from '../items/buttons/DoneButton';
 import BackButton from '../items/buttons/BackButton';
 
 export default class ModalHeader extends Component {
-
     render() {
         const { title, onPress } = this.props;
-        console.log(this.props);
-        console.log("working gfdgf")
         return (
             <View style={styles.container}>
                 <BackButton onPress={onPress} />

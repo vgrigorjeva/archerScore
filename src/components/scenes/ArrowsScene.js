@@ -11,7 +11,6 @@ import NewArrowModal from '../modals/NewArrowModal';
 @inject('arrowStore')
 @observer
 export default class ArrowsScene extends Component {
-
   render() {
     const { showAddArrowPopup } = this.props.arrowStore;
     return (

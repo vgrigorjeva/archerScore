@@ -6,7 +6,6 @@ import styles from '../../../styles/items/buttons';
 import { menuIcons } from '../../../styles/images';
 
 export default class AddButton extends Component {
-
     render() {
         return (
             <TouchableHighlight

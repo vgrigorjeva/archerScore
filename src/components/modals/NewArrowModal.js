@@ -11,7 +11,6 @@ import {
 import ModalHeader from '../items/ModalHeader';
 
 export default class NewArrowModal extends Component {
-
     render() {
         return (
             <View>
@@ -27,7 +26,7 @@ export default class NewArrowModal extends Component {
                     <Text>New arrow</Text>
                     <KeyboardAvoidingView>
                         <ScrollView>
-                            <TextInput></TextInput>
+                            <TextInput />
                         </ScrollView>
                     </KeyboardAvoidingView>
                     </View>
