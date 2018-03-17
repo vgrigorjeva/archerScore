@@ -9,100 +9,100 @@ import CalendarScene from '../scenes/CalendarScene';
 import StatisticsScene from '../scenes/StatisticsScene';
 
 const HomeNavigationStack = StackNavigator(
-    {
-        Home: {
-            screen: HomeScene,
-        }
+  {
+    Home: {
+      screen: HomeScene,
     },
-    {
-        navigationOptions: {
-            header: null,
-        },
-    }
+  },
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
 );
 
 const AddBowsNavigationStack = StackNavigator(
-    {
-        AddBow: {
-            screen: BowsScene,
-        },
+  {
+    AddBow: {
+      screen: BowsScene,
     },
-    {
-        navigationOptions: {
-            header: null,
-        },
-    }
+  },
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
 );
 
 const AddArrowsNavigationStack = StackNavigator(
-    {
-        AddArrows: {
-            screen: ArrowsScene,
-        }
+  {
+    AddArrows: {
+      screen: ArrowsScene,
     },
-    {
-        navigationOptions: {
-            header: null,
-        },
-    }
+  },
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
 );
 
 const CalendarNavigationStack = StackNavigator(
-    {
-        Calendar: {
-            screen: CalendarScene,
-        }
+  {
+    Calendar: {
+      screen: CalendarScene,
     },
-    {
-        navigationOptions: {
-            header: null,
-        },
-    }
+  },
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
 );
 
 const StatisticsNavigationStack = StackNavigator(
-    {
-        Statistics: {
-            screen: StatisticsScene,
-        }
+  {
+    Statistics: {
+      screen: StatisticsScene,
     },
-    {
-        navigationOptions: {
-            header: null,
-        },
-    }
+  },
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
 );
 
 const SideBarNavigator = DrawerNavigator(
-    {
-        Home: {
-            screen: HomeNavigationStack,
-        },
-        AddBow: {
-            screen: AddBowsNavigationStack,
-        },
-        AddArrows: {
-            screen: AddArrowsNavigationStack,
-        },
-        Calendar: {
-            screen: CalendarNavigationStack,
-        },
-        Statistics: {
-            screen: StatisticsNavigationStack,
-        },
+  {
+    Home: {
+      screen: HomeNavigationStack,
     },
-    {
-        navigationOptions: {
-            header: null,
-        },
-        contentComponent: props => <SideBarScene {...props} />,
+    AddBow: {
+      screen: AddBowsNavigationStack,
     },
+    AddArrows: {
+      screen: AddArrowsNavigationStack,
+    },
+    Calendar: {
+      screen: CalendarNavigationStack,
+    },
+    Statistics: {
+      screen: StatisticsNavigationStack,
+    },
+  },
+  {
+    navigationOptions: {
+      header: null,
+    },
+    contentComponent: props => <SideBarScene {...props} />,
+  },
 );
 
 export default class MainContainer extends Component {
-    render() {
-        return (
-            <SideBarNavigator />
-        );
-    }
+  render() {
+    return (
+      <SideBarNavigator />
+    );
+  }
 }

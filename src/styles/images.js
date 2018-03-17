@@ -1,8 +1,8 @@
 export const menuIcons = {
   menu: require('../../assets/images/menu/menuSimple.png'),
   addBlack: require('../../assets/images/menu/plusBtn.png'),
-  done:  require('../../assets/images/menu/done.png'),
-  backArrow:  require('../../assets/images/menu/backArrow.png'),
+  done: require('../../assets/images/menu/done.png'),
+  backArrow: require('../../assets/images/menu/backArrow.png'),
 };
 
 export const targetIcons = {
