@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+  <key>Fabric</key>
+  <dict>
+    <key>APIKey</key>
+    <string>08fbdc13d58c69ad18c5e09f9ed86d06d11b258d</string>
+    <key>Kits</key>
+    <array>
+      <dict>
+        <key>KitInfo</key>
+        <dict/>
+        <key>KitName</key>
+        <string>Crashlytics</string>
+      </dict>
+    </array>
+  </dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -9,7 +23,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>se.loggitera.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
