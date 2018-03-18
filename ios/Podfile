@@ -1,30 +1,30 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'archerScore' do
+target 'ArcheryNotes' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for archerScore
+  # Pods for ArcheryNotes
   pod 'Fabric'
   pod 'Crashlytics'
 
-  target 'archerScore-tvOSTests' do
+  target 'ArcheryNotes-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'archerScoreTests' do
+  target 'ArcheryNotesTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
 end
 
-target 'archerScore-tvOS' do
+target 'ArcheryNotes-tvOS' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for archerScore-tvOS
+  # Pods for ArcheryNotes-tvOS
 
 end

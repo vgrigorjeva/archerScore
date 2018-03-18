@@ -7,4 +7,4 @@ function archery() {
     return <StoreProvider />;
   }
 
-AppRegistry.registerComponent('archerScore', () => archery);
+AppRegistry.registerComponent('ArcheryNotes', () => archery);
