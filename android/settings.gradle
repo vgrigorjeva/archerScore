@@ -1,4 +1,4 @@
-rootProject.name = 'archerScore'
+rootProject.name = 'ArcheryNotes'
 include ':realm'
 project(':realm').projectDir = new File(rootProject.projectDir, '../node_modules/realm/android')
 

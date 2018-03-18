@@ -45,12 +45,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.archerscore",
+    package = "se.loggitera.archerynotes",
 )
 
 android_resource(
     name = "res",
-    package = "com.archerscore",
+    package = "se.loggitera.archerynotes",
     res = "src/main/res",
 )
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { inject, observer } from 'mobx-react/native';
+import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/addCompetition';
@@ -10,7 +11,6 @@ import NewCompetitionModal from '../modals/NewCompetitionModal';
 @inject('competitionStore')
 @observer
 export default class CompetitionScene extends Component {
-
   render() {
     const { showAddCompetitionPopup } = this.props.competitionStore;
     return (
@@ -30,3 +30,7 @@ export default class CompetitionScene extends Component {
     );
   }
 }
+
+CompetitionScene.propTypes = {
+  competitionStore: PropTypes.object.isRequired,
+};

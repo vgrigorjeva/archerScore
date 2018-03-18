@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableHighlight, Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 import styles from '../../styles/scenes/sidebar';
 
@@ -20,7 +21,6 @@ const sideBarItems = [
 ];
 
 export default class SideBarScene extends Component {
-
   renderItem = ({ item }) => (
     <TouchableHighlight
       onPress={() => {
@@ -52,7 +52,7 @@ export default class SideBarScene extends Component {
         <View style={styles.imageContainer}>
           <Image
             style={styles.menuHeaderImage}
-            resizeMode={'contain'}
+            resizeMode="contain"
             source={require('../../../assets/images/app/appIcon.png')}
           />
         </View>
@@ -66,3 +66,7 @@ export default class SideBarScene extends Component {
     );
   }
 }
+
+SideBarScene.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};

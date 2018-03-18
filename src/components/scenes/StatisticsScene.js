@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/statistics';
 import Navbar from '../items/Navbar';
 
 export default class StatisticsScene extends Component {
-
   render() {
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
-          title={'STATISTICS'}
+          title="STATISTICS"
           navigation={this.props.navigation}
         />
         <Text>
@@ -21,3 +21,7 @@ export default class StatisticsScene extends Component {
     );
   }
 }
+
+StatisticsScene.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/calendar';
 import Navbar from '../items/Navbar';
 
 export default class CalendarScene extends Component {
-
   constructor(props) {
     super(props);
     this.state = {};
@@ -17,7 +17,7 @@ export default class CalendarScene extends Component {
 
   onDayPress(day) {
     this.setState({
-      selected: day.dateString
+      selected: day.dateString,
     });
   }
 
@@ -26,7 +26,7 @@ export default class CalendarScene extends Component {
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
-          title={'CALENDAR'}
+          title="CALENDAR"
           navigation={this.props.navigation}
         />
         <ScrollView>
@@ -75,3 +75,7 @@ export default class CalendarScene extends Component {
     );
   }
 }
+
+CalendarScene.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};

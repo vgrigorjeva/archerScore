@@ -1,0 +1,743 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A5CE75F528738A85315459AD0D417A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */; };
+		9965BE48F4393AAC6373213A9FBC234E /* Pods-ArcheryNotesTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF69E04FF2111E85CFF3C00A463B319 /* Pods-ArcheryNotesTests-dummy.m */; };
+		9BE4C4614B36BA069571AF4B384ED2E3 /* Pods-ArcheryNotes-tvOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C5345CD35FA8CC590DE793AAC8463E /* Pods-ArcheryNotes-tvOSTests-dummy.m */; };
+		A51B05BCD5F00BFD87A780B705670408 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */; };
+		BA47CF1AF34384E55436B4E5AB965F3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */; };
+		D95C9DF6560D6DEC085D70245FCEC4A0 /* Pods-ArcheryNotes-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3157DF5A514AA0B1035FBC5B15588942 /* Pods-ArcheryNotes-dummy.m */; };
+		EBA0F17DB3EE45B76DC8E76CDBD4B025 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */; };
+		F552AFA707D8126DE55474697854552A /* Pods-ArcheryNotes-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686444BC53098D6CF501DB62AC638CD /* Pods-ArcheryNotes-tvOS-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		005E385358564F223B8727DE5931D76F /* libPods-ArcheryNotes-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ArcheryNotes-tvOS.a"; path = "libPods-ArcheryNotes-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A179C729689F03CD03A115AE3F62DE /* Pods-ArcheryNotes-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ArcheryNotes-acknowledgements.plist"; sourceTree = "<group>"; };
+		18BD41E4CD6C41793A4F3AD2D0504D30 /* Pods-ArcheryNotes-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArcheryNotes-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		200C81134ACADBF4B01AF7F1C51DE9EC /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
+		215002F6CBA03C9936D816C8A94E8CC7 /* Pods-ArcheryNotes-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArcheryNotes-frameworks.sh"; sourceTree = "<group>"; };
+		248CFD2D0F54EDC2F08A7481306CF39E /* Pods-ArcheryNotes-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArcheryNotes-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		29DE526E5B1D3B37719460B12B391B91 /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
+		2CACDAE238E97574C089CA58BBF56952 /* Pods-ArcheryNotes-tvOSTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArcheryNotes-tvOSTests-resources.sh"; sourceTree = "<group>"; };
+		2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2EA1A7E1ACD33179C97D3959BD2DE969 /* Pods-ArcheryNotes-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ArcheryNotes-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		3157DF5A514AA0B1035FBC5B15588942 /* Pods-ArcheryNotes-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ArcheryNotes-dummy.m"; sourceTree = "<group>"; };
+		44D06D888A4FF48034B472F813F5AABE /* Pods-ArcheryNotesTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArcheryNotesTests-frameworks.sh"; sourceTree = "<group>"; };
+		494C290BDBEAED23BA5743A3CE2FA0D1 /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
+		4AA88E38CE958A801DF5A335660EFC29 /* Pods-ArcheryNotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArcheryNotesTests.release.xcconfig"; sourceTree = "<group>"; };
+		50B312053918C2E898142E1154B53F30 /* Pods-ArcheryNotesTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ArcheryNotesTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		561F1191344B50F433BF56F30ADA3B87 /* Pods-ArcheryNotes-tvOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ArcheryNotes-tvOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5B0AC4555A08701A9F1760172610E0AF /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
+		6246DDB2D7A58B5B77996F722FB8A196 /* libPods-ArcheryNotes-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ArcheryNotes-tvOSTests.a"; path = "libPods-ArcheryNotes-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E8A191CEB1F5A9DF51ACA378A42858C /* Pods-ArcheryNotesTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArcheryNotesTests-resources.sh"; sourceTree = "<group>"; };
+		82981FB005A4ED4C556297735FD4ACED /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
+		856A7EF81F93DD33C78FA7140067110C /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
+		8686444BC53098D6CF501DB62AC638CD /* Pods-ArcheryNotes-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ArcheryNotes-tvOS-dummy.m"; sourceTree = "<group>"; };
+		8A1042BC6BAE565FD1023CBABC522618 /* Pods-ArcheryNotes-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArcheryNotes-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8AF69E04FF2111E85CFF3C00A463B319 /* Pods-ArcheryNotesTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ArcheryNotesTests-dummy.m"; sourceTree = "<group>"; };
+		8DB331D62E03B90D571016097AB0A7E0 /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
+		8E2F01F83A3351DFDD2888CDC1716B54 /* Pods-ArcheryNotes-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArcheryNotes-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		91395D46BFA500EE009FB5F8498581DF /* Pods-ArcheryNotes-tvOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArcheryNotes-tvOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		92972CC1C216B42A9AB4B6EABB27FC16 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A61E08527EFC3DBEDD4BFA0B5C45104C /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
+		A67D1C566A08D93FF9DDFB1D1BC1F358 /* Pods-ArcheryNotesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArcheryNotesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AA88795CF1E2C268E2891D21F9117E86 /* Pods-ArcheryNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArcheryNotes.release.xcconfig"; sourceTree = "<group>"; };
+		BC806F87A84D6976762F5BD3E5702652 /* Pods-ArcheryNotes-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArcheryNotes-tvOS-frameworks.sh"; sourceTree = "<group>"; };
+		C574ECCF3774D114C0FDB6D65C8E14A6 /* Pods-ArcheryNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArcheryNotes.debug.xcconfig"; sourceTree = "<group>"; };
+		CAA78E2733F06CBDD591D2FBE523BBAD /* Pods-ArcheryNotes-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArcheryNotes-resources.sh"; sourceTree = "<group>"; };
+		D1E08738FF71F152A8EA12403A3F824A /* Pods-ArcheryNotes-tvOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArcheryNotes-tvOS-resources.sh"; sourceTree = "<group>"; };
+		D2D486C45FF8DE08C43B385FC5462673 /* Pods-ArcheryNotesTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArcheryNotesTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D4C5345CD35FA8CC590DE793AAC8463E /* Pods-ArcheryNotes-tvOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ArcheryNotes-tvOSTests-dummy.m"; sourceTree = "<group>"; };
+		DBA48C54AB315A7317F3DD387EF04883 /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
+		E0D33A758E77BBD8045129A1B5F91A0F /* libPods-ArcheryNotesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ArcheryNotesTests.a"; path = "libPods-ArcheryNotesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAC88243AB9F702F3015F7068842116A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		EAC89076A1616ACD6F31DD1082186958 /* Pods-ArcheryNotes-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArcheryNotes-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		F264DF79E3D1EB4874F5CE13ABC25FFC /* Pods-ArcheryNotes-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArcheryNotes-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F7EF8123BED996B4C15FB85E78F4436D /* Pods-ArcheryNotes-tvOSTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArcheryNotes-tvOSTests-frameworks.sh"; sourceTree = "<group>"; };
+		FD2F197D266E5233DC2FA2CBC9843920 /* libPods-ArcheryNotes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ArcheryNotes.a"; path = "libPods-ArcheryNotes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07A625FEE4584B423D31516D7BCCF391 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA47CF1AF34384E55436B4E5AB965F3F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596EA837C3AA14326F13A66112172D4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A51B05BCD5F00BFD87A780B705670408 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A605BEBB069D00208F621D285E54EFEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A5CE75F528738A85315459AD0D417A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8F597752C8232DF456F4F25D201B0B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBA0F17DB3EE45B76DC8E76CDBD4B025 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F33EBCBA0E1C5407D27C1492420958D /* Pods-ArcheryNotesTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2D486C45FF8DE08C43B385FC5462673 /* Pods-ArcheryNotesTests-acknowledgements.markdown */,
+				50B312053918C2E898142E1154B53F30 /* Pods-ArcheryNotesTests-acknowledgements.plist */,
+				8AF69E04FF2111E85CFF3C00A463B319 /* Pods-ArcheryNotesTests-dummy.m */,
+				44D06D888A4FF48034B472F813F5AABE /* Pods-ArcheryNotesTests-frameworks.sh */,
+				7E8A191CEB1F5A9DF51ACA378A42858C /* Pods-ArcheryNotesTests-resources.sh */,
+				A67D1C566A08D93FF9DDFB1D1BC1F358 /* Pods-ArcheryNotesTests.debug.xcconfig */,
+				4AA88E38CE958A801DF5A335660EFC29 /* Pods-ArcheryNotesTests.release.xcconfig */,
+			);
+			name = "Pods-ArcheryNotesTests";
+			path = "Target Support Files/Pods-ArcheryNotesTests";
+			sourceTree = "<group>";
+		};
+		0F4DD877C87A81B8F82754C8CB546557 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD2F197D266E5233DC2FA2CBC9843920 /* libPods-ArcheryNotes.a */,
+				005E385358564F223B8727DE5931D76F /* libPods-ArcheryNotes-tvOS.a */,
+				6246DDB2D7A58B5B77996F722FB8A196 /* libPods-ArcheryNotes-tvOSTests.a */,
+				E0D33A758E77BBD8045129A1B5F91A0F /* libPods-ArcheryNotesTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DECB40FB920912AAF0486D55F226B8E /* Pods-ArcheryNotes-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				8E2F01F83A3351DFDD2888CDC1716B54 /* Pods-ArcheryNotes-tvOS-acknowledgements.markdown */,
+				2EA1A7E1ACD33179C97D3959BD2DE969 /* Pods-ArcheryNotes-tvOS-acknowledgements.plist */,
+				8686444BC53098D6CF501DB62AC638CD /* Pods-ArcheryNotes-tvOS-dummy.m */,
+				BC806F87A84D6976762F5BD3E5702652 /* Pods-ArcheryNotes-tvOS-frameworks.sh */,
+				D1E08738FF71F152A8EA12403A3F824A /* Pods-ArcheryNotes-tvOS-resources.sh */,
+				18BD41E4CD6C41793A4F3AD2D0504D30 /* Pods-ArcheryNotes-tvOS.debug.xcconfig */,
+				248CFD2D0F54EDC2F08A7481306CF39E /* Pods-ArcheryNotes-tvOS.release.xcconfig */,
+			);
+			name = "Pods-ArcheryNotes-tvOS";
+			path = "Target Support Files/Pods-ArcheryNotes-tvOS";
+			sourceTree = "<group>";
+		};
+		1DECF7299F0875E9BCB9492390207331 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26F9D6AB1F30C869A5F58AF8EF5A99C8 /* Crashlytics */,
+				D479A0301687E2A8F6F67D392B8551D2 /* Fabric */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		20F731AE46C73F232AF0C168DC383CF9 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				572DBE63D5360AB71E5F80F979738FD0 /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		26F9D6AB1F30C869A5F58AF8EF5A99C8 /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				5B0AC4555A08701A9F1760172610E0AF /* ANSCompatibility.h */,
+				A61E08527EFC3DBEDD4BFA0B5C45104C /* Answers.h */,
+				8DB331D62E03B90D571016097AB0A7E0 /* CLSAttributes.h */,
+				29DE526E5B1D3B37719460B12B391B91 /* CLSLogging.h */,
+				856A7EF81F93DD33C78FA7140067110C /* CLSReport.h */,
+				DBA48C54AB315A7317F3DD387EF04883 /* CLSStackFrame.h */,
+				200C81134ACADBF4B01AF7F1C51DE9EC /* Crashlytics.h */,
+				E268B07786115FF5D5DFF396150E695F /* Frameworks */,
+			);
+			name = Crashlytics;
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		2BCDA12319C13525F1AE4C6EC87F1985 /* Pods-ArcheryNotes-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				91395D46BFA500EE009FB5F8498581DF /* Pods-ArcheryNotes-tvOSTests-acknowledgements.markdown */,
+				561F1191344B50F433BF56F30ADA3B87 /* Pods-ArcheryNotes-tvOSTests-acknowledgements.plist */,
+				D4C5345CD35FA8CC590DE793AAC8463E /* Pods-ArcheryNotes-tvOSTests-dummy.m */,
+				F7EF8123BED996B4C15FB85E78F4436D /* Pods-ArcheryNotes-tvOSTests-frameworks.sh */,
+				2CACDAE238E97574C089CA58BBF56952 /* Pods-ArcheryNotes-tvOSTests-resources.sh */,
+				8A1042BC6BAE565FD1023CBABC522618 /* Pods-ArcheryNotes-tvOSTests.debug.xcconfig */,
+				EAC89076A1616ACD6F31DD1082186958 /* Pods-ArcheryNotes-tvOSTests.release.xcconfig */,
+			);
+			name = "Pods-ArcheryNotes-tvOSTests";
+			path = "Target Support Files/Pods-ArcheryNotes-tvOSTests";
+			sourceTree = "<group>";
+		};
+		2DDA681774534EB985F60A3418A4C908 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92972CC1C216B42A9AB4B6EABB27FC16 /* Fabric.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5601EF433258600987211A12EC0990FF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B1DC99479EA28BCB6CFCEFB6A0949D0 /* Pods-ArcheryNotes */,
+				1DECB40FB920912AAF0486D55F226B8E /* Pods-ArcheryNotes-tvOS */,
+				2BCDA12319C13525F1AE4C6EC87F1985 /* Pods-ArcheryNotes-tvOSTests */,
+				0F33EBCBA0E1C5407D27C1492420958D /* Pods-ArcheryNotesTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		58996781A54EE964D7111D73083A18A5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2D154F4805B9715F0E6D79B0363CE280 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6B1DC99479EA28BCB6CFCEFB6A0949D0 /* Pods-ArcheryNotes */ = {
+			isa = PBXGroup;
+			children = (
+				F264DF79E3D1EB4874F5CE13ABC25FFC /* Pods-ArcheryNotes-acknowledgements.markdown */,
+				04A179C729689F03CD03A115AE3F62DE /* Pods-ArcheryNotes-acknowledgements.plist */,
+				3157DF5A514AA0B1035FBC5B15588942 /* Pods-ArcheryNotes-dummy.m */,
+				215002F6CBA03C9936D816C8A94E8CC7 /* Pods-ArcheryNotes-frameworks.sh */,
+				CAA78E2733F06CBDD591D2FBE523BBAD /* Pods-ArcheryNotes-resources.sh */,
+				C574ECCF3774D114C0FDB6D65C8E14A6 /* Pods-ArcheryNotes.debug.xcconfig */,
+				AA88795CF1E2C268E2891D21F9117E86 /* Pods-ArcheryNotes.release.xcconfig */,
+			);
+			name = "Pods-ArcheryNotes";
+			path = "Target Support Files/Pods-ArcheryNotes";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				A42F72DC1D780481325DD00969B19BB6 /* Frameworks */,
+				1DECF7299F0875E9BCB9492390207331 /* Pods */,
+				0F4DD877C87A81B8F82754C8CB546557 /* Products */,
+				5601EF433258600987211A12EC0990FF /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A42F72DC1D780481325DD00969B19BB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58996781A54EE964D7111D73083A18A5 /* iOS */,
+				20F731AE46C73F232AF0C168DC383CF9 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D479A0301687E2A8F6F67D392B8551D2 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				494C290BDBEAED23BA5743A3CE2FA0D1 /* FABAttributes.h */,
+				82981FB005A4ED4C556297735FD4ACED /* Fabric.h */,
+				2DDA681774534EB985F60A3418A4C908 /* Frameworks */,
+			);
+			name = Fabric;
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		E268B07786115FF5D5DFF396150E695F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAC88243AB9F702F3015F7068842116A /* Crashlytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		59D8F7BC27E19B6DB4B79126ABED8AF8 /* Pods-ArcheryNotesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D797CD0D5102000679B92334EBE3CCB2 /* Build configuration list for PBXNativeTarget "Pods-ArcheryNotesTests" */;
+			buildPhases = (
+				0F1EAF60F15A932545A3BDA7480EA7BD /* Sources */,
+				A605BEBB069D00208F621D285E54EFEA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ArcheryNotesTests";
+			productName = "Pods-ArcheryNotesTests";
+			productReference = E0D33A758E77BBD8045129A1B5F91A0F /* libPods-ArcheryNotesTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		93B78CC62B80B62D2B766252C160E88E /* Pods-ArcheryNotes-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD91B5FBAB3B395AC03A2B53445CC23D /* Build configuration list for PBXNativeTarget "Pods-ArcheryNotes-tvOS" */;
+			buildPhases = (
+				D699310724160778F1593234D78B1A8E /* Sources */,
+				07A625FEE4584B423D31516D7BCCF391 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ArcheryNotes-tvOS";
+			productName = "Pods-ArcheryNotes-tvOS";
+			productReference = 005E385358564F223B8727DE5931D76F /* libPods-ArcheryNotes-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A2A898767CA61310CB8F2FD53B4834D4 /* Pods-ArcheryNotes-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3858554BDCF23CDC6041F3EFB228BE0 /* Build configuration list for PBXNativeTarget "Pods-ArcheryNotes-tvOSTests" */;
+			buildPhases = (
+				FBB71CD0EB9F639E66A6E1B24B535CC2 /* Sources */,
+				F8F597752C8232DF456F4F25D201B0B9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ArcheryNotes-tvOSTests";
+			productName = "Pods-ArcheryNotes-tvOSTests";
+			productReference = 6246DDB2D7A58B5B77996F722FB8A196 /* libPods-ArcheryNotes-tvOSTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E3C77F110B17A067A185493C985C5052 /* Pods-ArcheryNotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9318B2A8AE7DAE6E6D5A17C345AFFF43 /* Build configuration list for PBXNativeTarget "Pods-ArcheryNotes" */;
+			buildPhases = (
+				A443C20E09083F8B4AA00718E8D28463 /* Sources */,
+				596EA837C3AA14326F13A66112172D4C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ArcheryNotes";
+			productName = "Pods-ArcheryNotes";
+			productReference = FD2F197D266E5233DC2FA2CBC9843920 /* libPods-ArcheryNotes.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 0F4DD877C87A81B8F82754C8CB546557 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3C77F110B17A067A185493C985C5052 /* Pods-ArcheryNotes */,
+				93B78CC62B80B62D2B766252C160E88E /* Pods-ArcheryNotes-tvOS */,
+				A2A898767CA61310CB8F2FD53B4834D4 /* Pods-ArcheryNotes-tvOSTests */,
+				59D8F7BC27E19B6DB4B79126ABED8AF8 /* Pods-ArcheryNotesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0F1EAF60F15A932545A3BDA7480EA7BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9965BE48F4393AAC6373213A9FBC234E /* Pods-ArcheryNotesTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A443C20E09083F8B4AA00718E8D28463 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95C9DF6560D6DEC085D70245FCEC4A0 /* Pods-ArcheryNotes-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D699310724160778F1593234D78B1A8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F552AFA707D8126DE55474697854552A /* Pods-ArcheryNotes-tvOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB71CD0EB9F639E66A6E1B24B535CC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BE4C4614B36BA069571AF4B384ED2E3 /* Pods-ArcheryNotes-tvOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1A15F2823E31A3210FE31A7B90D32B8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		2C3A21F58304163BE5B91FF9871B843E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 248CFD2D0F54EDC2F08A7481306CF39E /* Pods-ArcheryNotes-tvOS.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39A485195E3407E8392BFC081CE8530B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		7B67DE0267FADC936FD777C6605CD7B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A67D1C566A08D93FF9DDFB1D1BC1F358 /* Pods-ArcheryNotesTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7CF73A37B4DEFF2D6BBD776D6EF0E92E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A1042BC6BAE565FD1023CBABC522618 /* Pods-ArcheryNotes-tvOSTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		80FF923CE553E81B4133C4A66CB32F01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAC89076A1616ACD6F31DD1082186958 /* Pods-ArcheryNotes-tvOSTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A36AD55D99DFE222387623D1D1B671D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA88795CF1E2C268E2891D21F9117E86 /* Pods-ArcheryNotes.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDF12FD4F7173910FD80CAD653AF1B35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AA88E38CE958A801DF5A335660EFC29 /* Pods-ArcheryNotesTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F6E6842EEC49C8F2F39D9CC143B33430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18BD41E4CD6C41793A4F3AD2D0504D30 /* Pods-ArcheryNotes-tvOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		FEC8CCA6D333867F4E604326EA8095E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C574ECCF3774D114C0FDB6D65C8E14A6 /* Pods-ArcheryNotes.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A15F2823E31A3210FE31A7B90D32B8F /* Debug */,
+				39A485195E3407E8392BFC081CE8530B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9318B2A8AE7DAE6E6D5A17C345AFFF43 /* Build configuration list for PBXNativeTarget "Pods-ArcheryNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEC8CCA6D333867F4E604326EA8095E0 /* Debug */,
+				8A36AD55D99DFE222387623D1D1B671D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD91B5FBAB3B395AC03A2B53445CC23D /* Build configuration list for PBXNativeTarget "Pods-ArcheryNotes-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6E6842EEC49C8F2F39D9CC143B33430 /* Debug */,
+				2C3A21F58304163BE5B91FF9871B843E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D797CD0D5102000679B92334EBE3CCB2 /* Build configuration list for PBXNativeTarget "Pods-ArcheryNotesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B67DE0267FADC936FD777C6605CD7B0 /* Debug */,
+				EDF12FD4F7173910FD80CAD653AF1B35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3858554BDCF23CDC6041F3EFB228BE0 /* Build configuration list for PBXNativeTarget "Pods-ArcheryNotes-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CF73A37B4DEFF2D6BBD776D6EF0E92E /* Debug */,
+				80FF923CE553E81B4133C4A66CB32F01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

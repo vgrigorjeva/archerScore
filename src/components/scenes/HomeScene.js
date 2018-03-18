@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import type { NavigationState } from 'react-native-tab-view/types';
+import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/home';
@@ -17,7 +18,6 @@ type Route = {
 type State = NavigationState<Route>;
 
 export default class HomeScene extends Component {
-
   state: State = {
     index: 0,
     routes: [
@@ -27,7 +27,7 @@ export default class HomeScene extends Component {
     width: 0,
   };
 
-  handleIndexChange = index => {
+  handleIndexChange = (index) => {
     this.setState({
       index,
     });
@@ -61,7 +61,7 @@ export default class HomeScene extends Component {
   render() {
     return (
       <View style={generalStyles.sceneContainer}>
-        <NavBar title={'MY RESULTS'} navigation={this.props.navigation} />
+        <NavBar title="MY RESULTS" navigation={this.props.navigation} />
         <TabViewAnimated
           style={styles.container}
           navigationState={this.state}
@@ -73,3 +73,7 @@ export default class HomeScene extends Component {
     );
   }
 }
+
+HomeScene.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
