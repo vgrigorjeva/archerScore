@@ -12,18 +12,19 @@ import NewCompetitionModal from '../modals/NewCompetitionModal';
 @observer
 export default class CompetitionScene extends Component {
   render() {
-    const { showAddCompetitionPopup } = this.props.competitionStore;
+    const { competitionStore } = this.props;
+    const { showAddCompetitionPopup } = competitionStore;
     return (
       <View style={generalStyles.sceneContainer}>
         <AddButton
-          onPress={() => { this.props.competitionStore.setShowAddCompetitionPopup(true); }}
+          onPress={() => { competitionStore.setShowAddCompetitionPopup(true); }}
         />
         <Text>
           competition
         </Text>
         {
           showAddCompetitionPopup && <NewCompetitionModal
-            togglePopup={() => { this.props.competitionStore.setShowAddCompetitionPopup(false); }}
+            togglePopup={() => { competitionStore.setShowAddCompetitionPopup(false); }}
           />
         }
       </View>
@@ -32,5 +33,4 @@ export default class CompetitionScene extends Component {
 }
 
 CompetitionScene.propTypes = {
-  competitionStore: PropTypes.object.isRequired,
 };

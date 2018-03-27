@@ -6,7 +6,6 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   TextInput,
-  TouchableHighlight,
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -58,6 +57,7 @@ export default class NewTrainingModal extends Component {
             <ModalHeader
               title="New training"
               onPress={() => this.props.togglePopup()}
+              onPressDone={() => this.createTraining()}
             />
             <Text>New training</Text>
             <KeyboardAvoidingView>
@@ -71,11 +71,6 @@ export default class NewTrainingModal extends Component {
                 <TextInput
                   onChangeText={text => this.setDistance(text)}
                 />
-                <TouchableHighlight
-                  onPress={() => this.createTraining()}
-                >
-                  <Text>Create training</Text>
-                </TouchableHighlight>
               </ScrollView>
             </KeyboardAvoidingView>
           </View>

@@ -15,6 +15,36 @@ const TrainingSchema = {
   },
 };
 
+const BowSchema = {
+  name: 'Bow',
+  primaryKey: 'itemId',
+  properties: {
+    itemId: 'string',
+    name: 'string',
+    bowType: 'string',
+    brand: 'string',
+    size: 'number',
+    drawWeight: 'number',
+    tiller: 'number',
+    braceHeight: 'number',
+    limbs: 'string',
+    nockingPoint: 'string',
+    string: 'string',
+    description: 'string',
+    sightSettings: 'Sight[]',
+  },
+};
+
+const SightSchema = {
+  name: 'Sight',
+  primaryKey: 'itemId',
+  properties: {
+    itemId: 'string',
+    distance: 'number',
+    setting: 'string',
+  },
+};
+
 const getRealm = () =>
   new Promise((resolve, reject) => {
     if (realm) {
@@ -23,6 +53,8 @@ const getRealm = () =>
       Realm.open({
         schema: [
           TrainingSchema,
+          BowSchema,
+          SightSchema,
         ],
       }).catch((error) => {
         reject(error);

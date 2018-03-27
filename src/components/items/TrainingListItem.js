@@ -16,7 +16,7 @@ export default class TrainingListItem extends Component {
   render() {
     const { training } = this.state;
     return (
-      <View >
+      <View>
         <Text>{training.name}</Text>
       </View>
     );

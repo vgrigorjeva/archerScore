@@ -50,7 +50,8 @@ export default class TrainingScene extends Component {
 
   render() {
     const { trainings } = this.state;
-    const { showAddTrainingPopup } = this.props.trainingStore;
+    const { trainingStore } = this.props;
+    const { showAddTrainingPopup } = trainingStore;
     return (
       <View style={generalStyles.sceneContainer}>
 
@@ -61,11 +62,11 @@ export default class TrainingScene extends Component {
         />
         {
           showAddTrainingPopup && <NewTrainingModal
-            togglePopup={() => { this.props.trainingStore.setShowAddTrainingPopup(false); }}
+            togglePopup={() => { trainingStore.setShowAddTrainingPopup(false); }}
           />
         }
         <AddButton
-          onPress={() => { this.props.trainingStore.setShowAddTrainingPopup(true); }}
+          onPress={() => { trainingStore.setShowAddTrainingPopup(true); }}
         />
       </View>
     );
@@ -73,5 +74,4 @@ export default class TrainingScene extends Component {
 }
 
 TrainingScene.propTypes = {
-  trainingStore: PropTypes.object.isRequired,
 };

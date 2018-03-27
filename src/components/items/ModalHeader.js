@@ -8,12 +8,12 @@ import BackButton from '../items/buttons/BackButton';
 
 export default class ModalHeader extends Component {
   render() {
-    const { title, onPress } = this.props;
+    const { title, onPress, onPressDone } = this.props;
     return (
       <View style={styles.container}>
         <BackButton onPress={onPress} />
         <Text style={styles.text}>{title}</Text>
-        <DoneButton />
+        <DoneButton onPress={onPressDone} />
       </View>
     );
   }
@@ -22,4 +22,5 @@ export default class ModalHeader extends Component {
 ModalHeader.propTypes = {
   title: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
+  onPressDone: PropTypes.func.isRequired,
 };
