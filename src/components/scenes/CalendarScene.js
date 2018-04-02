@@ -29,6 +29,7 @@ export default class CalendarScene extends Component {
         <Navbar
           title="CALENDAR"
           navigation={navigation}
+          goBack={false}
         />
         <ScrollView>
           <Calendar

@@ -39,7 +39,7 @@ export default class NewTrainingModal extends Component {
 
   createTraining() {
     const { name, distance, bowType } = this.state;
-    const { trainingStore, navigation } = this.props;
+    const { trainingStore, togglePopup } = this.props;
     const training = RealmService.createTraining({
       name,
       distance,
@@ -48,8 +48,7 @@ export default class NewTrainingModal extends Component {
     this.setState({
       training,
     });
-    console.log(this.props);
-    navigation.navigate('Training');
+    togglePopup();
     trainingStore.setShowAddTrainingPopup(false);
   }
 
@@ -90,5 +89,4 @@ export default class NewTrainingModal extends Component {
 
 NewTrainingModal.propTypes = {
   togglePopup: PropTypes.func.isRequired,
-  navigation: PropTypes.object.isRequired,
 };

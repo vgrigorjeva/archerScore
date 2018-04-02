@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableHighlight,
+} from 'react-native';
 import PropTypes from 'prop-types';
 
 export default class TrainingListItem extends Component {
@@ -13,9 +17,16 @@ export default class TrainingListItem extends Component {
 
   render() {
     const { training } = this.state;
+    const { navigation } = this.props;
     return (
       <View>
-        <Text>{training.name}</Text>
+        <TouchableHighlight
+          onPress={() => navigation.navigate('Training', {
+            training,
+          })}
+        >
+          <Text>{training.name}</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -23,4 +34,5 @@ export default class TrainingListItem extends Component {
 
 TrainingListItem.propTypes = {
   training: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
 };

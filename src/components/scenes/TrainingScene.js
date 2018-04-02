@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { inject, observer } from 'mobx-react/native';
 import PropTypes from 'prop-types';
 
@@ -12,22 +12,24 @@ import NavBar from '../items/Navbar';
 @inject('trainingStore')
 @observer
 export default class TrainingScene extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { navigation } = this.props;
+    const { training } = navigation.state.params;
     return (
       <View style={generalStyles.sceneContainer}>
         <NavBar
-          title="this training"
+          title={training.name}
           navigation={navigation}
+          goBack
         />
+        <Text>
+          {training.name}
+        </Text>
       </View>
     );
   }
 }
 
 TrainingScene.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };

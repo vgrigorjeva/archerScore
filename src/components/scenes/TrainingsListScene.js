@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { inject, observer } from 'mobx-react/native';
 import PropTypes from 'prop-types';
 
@@ -9,6 +9,7 @@ import AddButton from '../items/buttons/AddButton';
 import NewTrainingModal from '../modals/NewTrainingModal';
 import RealmService from '../../services/realmService';
 import NavBar from '../items/Navbar';
+import TrainingListItem from '../items/TrainingListItem';
 
 // import TrainingListItem from '../items/trainingListItem';
 
@@ -43,12 +44,15 @@ export default class TrainingsListScene extends Component {
       });
   }
 
-  renderItem = ({ item }) => (
-    <Text>{item.name}</Text>
-    /*  <TrainingListItem
-      training={item}
-    /> */
-  );
+  renderItem = ({ item }) => {
+    const { navigation } = this.props;
+    return (
+      <TrainingListItem
+        training={item}
+        navigation={navigation}
+      />
+    );
+  };
 
   render() {
     const { trainings } = this.state;
@@ -59,6 +63,7 @@ export default class TrainingsListScene extends Component {
         <NavBar
           title="MY TRAININGS"
           navigation={navigation}
+          goBack={false}
         />
         <FlatList
           data={trainings}

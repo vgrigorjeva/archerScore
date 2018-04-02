@@ -20,6 +20,7 @@ export default class CompetitionsListScene extends Component {
         <NavBar
           title="MY COMPETITIONS"
           navigation={navigation}
+          goBack={false}
         />
         <AddButton
           onPress={() => { competitionStore.setShowAddCompetitionPopup(true); }}

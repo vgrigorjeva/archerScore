@@ -14,6 +14,7 @@ export default class StatisticsScene extends Component {
         <Navbar
           title="STATISTICS"
           navigation={navigation}
+          goBack={false}
         />
         <Text>
           stats

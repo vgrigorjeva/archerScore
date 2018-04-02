@@ -20,6 +20,7 @@ export default class BowsScene extends Component {
         <Navbar
           title="MY BOWS"
           navigation={navigation}
+          goBack={false}
         />
       
         <Text>

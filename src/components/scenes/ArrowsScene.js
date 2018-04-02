@@ -21,6 +21,7 @@ export default class ArrowsScene extends Component {
         <Navbar
           title="MY ARROWS"
           navigation={navigation}
+          goBack={false}
         />
         <AddButton onPress={() => { arrowStore.setShowAddArrowPopup(true); }} />
         <Text>
