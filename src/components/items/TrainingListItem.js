@@ -7,6 +7,7 @@ import {
 import PropTypes from 'prop-types';
 
 import realmService from '../../services/realmService';
+import styles from '../../styles/items/trainingListItem';
 
 export default class TrainingListItem extends Component {
   constructor(props) {
@@ -22,15 +23,21 @@ export default class TrainingListItem extends Component {
     const { navigation } = this.props;
     const trainingId = training.itemId;
     return (
-      <View>
-        <TouchableHighlight
-          onPress={() => navigation.navigate('Training', {
-            training,
-          })}
-          onLongPress={() => realmService.deleteTraining({ trainingId })}
-        >
-          <Text>{training.name}</Text>
-        </TouchableHighlight>
+      <View style={{ height: 50, backgroundColor: '#115511', justifyContent: 'center' }}>
+        <View>
+          <TouchableHighlight
+            onPress={() => navigation.navigate('Training', {
+              training,
+            })}
+            onLongPress={() => realmService.deleteTraining(trainingId)}
+          >
+            <View>
+              <Text style={{ fontSize: 24, color: 'white' }}>
+                {training.name}
+              </Text>
+            </View>
+          </TouchableHighlight>
+        </View>
       </View>
     );
   }
