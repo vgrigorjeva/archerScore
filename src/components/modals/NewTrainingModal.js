@@ -8,10 +8,13 @@ import {
   TextInput,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react/native';
 
 import ModalHeader from '../items/ModalHeader';
 import RealmService from '../../services/realmService';
 
+@inject('trainingStore')
+@observer
 export default class NewTrainingModal extends Component {
   constructor(props) {
     super(props);
@@ -36,6 +39,7 @@ export default class NewTrainingModal extends Component {
 
   createTraining() {
     const { name, distance, bowType } = this.state;
+    const { trainingStore, navigation } = this.props;
     const training = RealmService.createTraining({
       name,
       distance,
@@ -44,19 +48,23 @@ export default class NewTrainingModal extends Component {
     this.setState({
       training,
     });
+    console.log(this.props);
+    navigation.navigate('Training');
+    trainingStore.setShowAddTrainingPopup(false);
   }
 
   render() {
+    const { togglePopup } = this.props;
     return (
       <View>
         <Modal
           animationType="slide"
-          onRequestClose={() => this.props.togglePopup()}
+          onRequestClose={() => togglePopup()}
         >
           <View>
             <ModalHeader
               title="New training"
-              onPress={() => this.props.togglePopup()}
+              onPress={() => togglePopup()}
               onPressDone={() => this.createTraining()}
             />
             <Text>New training</Text>
@@ -82,4 +90,5 @@ export default class NewTrainingModal extends Component {
 
 NewTrainingModal.propTypes = {
   togglePopup: PropTypes.func.isRequired,
+  navigation: PropTypes.object.isRequired,
 };

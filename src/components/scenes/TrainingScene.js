@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View } from 'react-native';
 import { inject, observer } from 'mobx-react/native';
 import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/addTraining';
-import AddButton from '../items/buttons/AddButton';
-import NewTrainingModal from '../modals/NewTrainingModal';
-import RealmService from '../../services/realmService';
+import NavBar from '../items/Navbar';
+
 // import TrainingListItem from '../items/trainingListItem';
 
 @inject('trainingStore')
@@ -15,58 +14,15 @@ import RealmService from '../../services/realmService';
 export default class TrainingScene extends Component {
   constructor(props) {
     super(props);
-    this.onChange = this.onChange.bind(this);
-    this.state = {
-      trainings: [],
-    };
   }
-
-  componentWillMount() {
-    RealmService.getRealm()
-      .then(() => {
-        const trainings = RealmService.getTrainings();
-        trainings.addListener(this.onChange);
-        this.setState({
-          trainings,
-        });
-      });
-  }
-
-  onChange() {
-    RealmService.getRealm()
-      .then(() => {
-        this.setState({
-          trainings: RealmService.getTrainings(),
-        });
-      });
-  }
-
-  renderItem = ({ item }) => (
-    <Text>{item.name}</Text>
-    /*  <TrainingListItem
-      training={item}
-    /> */
-  );
 
   render() {
-    const { trainings } = this.state;
-    const { trainingStore } = this.props;
-    const { showAddTrainingPopup } = trainingStore;
+    const { navigation } = this.props;
     return (
       <View style={generalStyles.sceneContainer}>
-
-        <FlatList
-          data={trainings}
-          keyExtractor={item => item.itemId}
-          renderItem={this.renderItem}
-        />
-        {
-          showAddTrainingPopup && <NewTrainingModal
-            togglePopup={() => { trainingStore.setShowAddTrainingPopup(false); }}
-          />
-        }
-        <AddButton
-          onPress={() => { trainingStore.setShowAddTrainingPopup(true); }}
+        <NavBar
+          title="this training"
+          navigation={navigation}
         />
       </View>
     );

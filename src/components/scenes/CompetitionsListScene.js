@@ -7,15 +7,20 @@ import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/addCompetition';
 import AddButton from '../items/buttons/AddButton';
 import NewCompetitionModal from '../modals/NewCompetitionModal';
+import NavBar from '../items/Navbar';
 
 @inject('competitionStore')
 @observer
-export default class CompetitionScene extends Component {
+export default class CompetitionsListScene extends Component {
   render() {
-    const { competitionStore } = this.props;
+    const { competitionStore, navigation } = this.props;
     const { showAddCompetitionPopup } = competitionStore;
     return (
       <View style={generalStyles.sceneContainer}>
+        <NavBar
+          title="MY COMPETITIONS"
+          navigation={navigation}
+        />
         <AddButton
           onPress={() => { competitionStore.setShowAddCompetitionPopup(true); }}
         />
@@ -32,5 +37,6 @@ export default class CompetitionScene extends Component {
   }
 }
 
-CompetitionScene.propTypes = {
+CompetitionsListScene.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };

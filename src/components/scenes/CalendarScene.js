@@ -23,11 +23,12 @@ export default class CalendarScene extends Component {
 
   render() {
     const today = moment().format('YYYY-MM-DD');
+    const { navigation } = this.props;
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
           title="CALENDAR"
-          navigation={this.props.navigation}
+          navigation={navigation}
         />
         <ScrollView>
           <Calendar

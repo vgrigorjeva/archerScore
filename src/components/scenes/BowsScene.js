@@ -13,28 +13,30 @@ import NewBowModal from '../modals/NewBowModal';
 @observer
 export default class BowsScene extends Component {
   render() {
-    const { showAddBowPopup } = this.props.bowStore;
+    const { bowStore, navigation } = this.props;
+    const { showAddBowPopup } = bowStore;
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
           title="MY BOWS"
-          navigation={this.props.navigation}
+          navigation={navigation}
         />
-        <AddButton onPress={() => { this.props.bowStore.setShowAddBowPopup(true); }} />
+      
         <Text>
           bows
         </Text>
         {
           showAddBowPopup && <NewBowModal
-            togglePopup={() => { this.props.bowStore.setShowAddBowPopup(false); }}
+            togglePopup={() => { bowStore.setShowAddBowPopup(false); }}
+            navigation={this.props.navigation}
           />
         }
+        <AddButton onPress={() => { bowStore.setShowAddBowPopup(true); }} />
       </View>
     );
   }
 }
 
 BowsScene.propTypes = {
-  bowStore: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
 };

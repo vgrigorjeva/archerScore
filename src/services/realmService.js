@@ -23,10 +23,10 @@ const BowSchema = {
     name: 'string',
     bowType: 'string',
     brand: 'string',
-    size: 'number',
-    drawWeight: 'number',
-    tiller: 'number',
-    braceHeight: 'number',
+    size: 'int',
+    drawWeight: 'int',
+    tiller: 'int',
+    braceHeight: 'int',
     limbs: 'string',
     nockingPoint: 'string',
     string: 'string',
@@ -40,7 +40,7 @@ const SightSchema = {
   primaryKey: 'itemId',
   properties: {
     itemId: 'string',
-    distance: 'number',
+    distance: 'int',
     setting: 'string',
   },
 };
@@ -82,7 +82,7 @@ const createTraining = ({ name, bowType, distance }) => {
   return training;
 };
 
-const getTrainings = () => realm.objects('Training').sorted('name', true);
+const getTrainings = () => realm.objects('Training').sorted('date', true);
 
 export default {
   getRealm,

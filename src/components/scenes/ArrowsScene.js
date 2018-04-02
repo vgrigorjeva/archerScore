@@ -13,20 +13,22 @@ import NewArrowModal from '../modals/NewArrowModal';
 @observer
 export default class ArrowsScene extends Component {
   render() {
-    const { showAddArrowPopup } = this.props.arrowStore;
+    const { arrowStore, navigation } = this.props;
+    const { showAddArrowPopup } = arrowStore;
+
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
           title="MY ARROWS"
-          navigation={this.props.navigation}
+          navigation={navigation}
         />
-        <AddButton onPress={() => { this.props.arrowStore.setShowAddArrowPopup(true); }} />
+        <AddButton onPress={() => { arrowStore.setShowAddArrowPopup(true); }} />
         <Text>
           arrows
         </Text>
         {
           showAddArrowPopup && <NewArrowModal
-            togglePopup={() => { this.props.arrowStore.setShowAddArrowPopup(false); }}
+            togglePopup={() => { arrowStore.setShowAddArrowPopup(false); }}
           />
         }
       </View>
@@ -35,6 +37,5 @@ export default class ArrowsScene extends Component {
 }
 
 ArrowsScene.propTypes = {
-  arrowStore: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
 };

@@ -13,16 +13,18 @@ import ModalHeader from '../items/ModalHeader';
 
 export default class NewBowModal extends Component {
   render() {
+    const { togglePopup } = this.props;
     return (
       <View>
         <Modal
           animationType="slide"
-          onRequestClose={() => this.props.togglePopup()}
+          onRequestClose={() => togglePopup()}
         >
           <View>
             <ModalHeader
               title="Add bow"
-              onPress={() => this.props.togglePopup()}
+              onPress={() => togglePopup()}
+              onPressDone={() => togglePopup()}
             />
             <Text>New bow</Text>
             <KeyboardAvoidingView>

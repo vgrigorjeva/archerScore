@@ -8,11 +8,12 @@ import Navbar from '../items/Navbar';
 
 export default class StatisticsScene extends Component {
   render() {
+    const { navigation } = this.props;
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
           title="STATISTICS"
-          navigation={this.props.navigation}
+          navigation={navigation}
         />
         <Text>
           stats
