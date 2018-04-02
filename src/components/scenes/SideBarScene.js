@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableHighlight, Image } from 'react-native';
 import PropTypes from 'prop-types';
+import { NavigationActions } from 'react-navigation';
 
 import styles from '../../styles/scenes/sidebar';
 
@@ -26,11 +27,15 @@ export default class SideBarScene extends Component {
       onPress={() => {
         switch (item) {
           case 'MY ARROWS':
-            return this.props.navigation.navigate('AddArrows');
+           return this.props.navigation.navigate('AddArrows');
           case 'MY BOWS':
             return this.props.navigation.navigate('AddBow');
           case 'HOME':
-            return this.props.navigation.navigate('Home');
+          return (
+            this.props.navigation.dispatch(NavigationActions.reset({
+              index: 0,
+              actions: [NavigationActions.navigate({ routeName: 'TrainingList' })],
+            })));
           case 'CALENDAR':
             return this.props.navigation.navigate('Calendar');
           case 'STATISTICS':

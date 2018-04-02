@@ -67,7 +67,7 @@ export default class TrainingsListScene extends Component {
         />
         {
           showAddTrainingPopup && <NewTrainingModal
-            navigation={this.props.navigation}
+            navigation={navigation}
             togglePopup={() => { trainingStore.setShowAddTrainingPopup(false); }}
           />
         }
