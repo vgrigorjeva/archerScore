@@ -84,8 +84,19 @@ const createTraining = ({ name, bowType, distance }) => {
 
 const getTrainings = () => realm.objects('Training').sorted('date', true);
 
+const getCurrentTraining = ({ trainingId }) => realm.objects('Training').filtered('itemId = $0', trainingId)[0];
+
+const deleteTraining = ({ trainingId }) => {
+  const training = getCurrentTraining({ trainingId });
+  realm.write(() => {
+    realm.delete(training);
+  });
+};
+
+
 export default {
   getRealm,
   createTraining,
   getTrainings,
+  deleteTraining,
 };

@@ -18,4 +18,12 @@ export default StyleSheet.create({
     position: 'absolute',
     left: 10,
   },
+  pointButton: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

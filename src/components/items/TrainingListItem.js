@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
+import realmService from '../../services/realmService';
+
 export default class TrainingListItem extends Component {
   constructor(props) {
     super(props);
@@ -18,12 +20,14 @@ export default class TrainingListItem extends Component {
   render() {
     const { training } = this.state;
     const { navigation } = this.props;
+    const trainingId = training.itemId;
     return (
       <View>
         <TouchableHighlight
           onPress={() => navigation.navigate('Training', {
             training,
           })}
+          onLongPress={() => realmService.deleteTraining({ trainingId })}
         >
           <Text>{training.name}</Text>
         </TouchableHighlight>
