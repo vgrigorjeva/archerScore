@@ -6,6 +6,8 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   TextInput,
+  Picker,
+  Slider,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react/native';
@@ -21,29 +23,38 @@ export default class NewTrainingModal extends Component {
     this.createTraining = this.createTraining.bind(this);
     this.state = {
       name: '',
-      training: '',
-      distance: '',
-      bowType: '',
+      targetType: '',
+      bow: '',
+      distance: 18,
+      arrowsPerSet: 3,
+      environment: '',
+      note: '',
+      arrow: '',
+      isOutdoors: false,
     };
   }
 
-  setName(name) {
-    this.setState({ name });
-  }
-  setBowType(bowType) {
-    this.setState({ bowType });
-  }
-  setDistance(distance) {
-    this.setState({ distance });
-  }
-
   createTraining() {
-    const { name, distance, bowType } = this.state;
+    const {
+      name,
+      targetType,
+      bow,
+      distance,
+      arrowsPerSet,
+      environment,
+      note,
+      arrow,
+    } = this.state;
     const { trainingStore, togglePopup } = this.props;
     const training = RealmService.createTraining({
       name,
+      targetType,
+      bow,
       distance,
-      bowType,
+      arrowsPerSet,
+      environment,
+      note,
+      arrow,
     });
     this.setState({
       training,
@@ -66,17 +77,54 @@ export default class NewTrainingModal extends Component {
               onPress={() => togglePopup()}
               onPressDone={() => this.createTraining()}
             />
-            <Text>New training</Text>
             <KeyboardAvoidingView>
-              <ScrollView>
+              <ScrollView
+                keyboardShouldPersistTaps="always"
+              >
                 <TextInput
-                  onChangeText={text => this.setName(text)}
+                  onChangeText={name => this.setState({ name })}
+                  placeholder="Name"
                 />
-                <TextInput
-                  onChangeText={text => this.setBowType(text)}
+                <Picker
+                  onValueChange={targetType => this.setState({ targetType })}
+                >
+                  <Picker.Item label="Barebow" value="barebow" />
+                  <Picker.Item label="Compound" value="compound" />
+                </Picker>
+                <Picker
+                  selectedValue={this.state.environment}
+                  onValueChange={environment => this.setState({ environment })}
+                >
+                  <Picker.Item label="Indoor" value="indoor" />
+                  <Picker.Item label="Outdoor" value="outdoor" />
+                </Picker>
+                {this.state.isOutdoors &&
+                <Picker
+                  onValueChange={environment => this.setState({ environment })}
+                >
+                  <Picker.Item label="Indoor" value="indoor" />
+                  <Picker.Item label="Outdoor" value="outdoor" />
+                </Picker>
+                }
+                <Slider
+                  value={this.state.distance}
+                  minimumValue={1}
+                  maximumValue={70}
+                  step={1}
+                  onValueChange={distance => this.setState({ distance })}
                 />
+                <Text>{this.state.distance}</Text>
+                <Slider
+                  value={this.state.arrowsPerSet}
+                  minimumValue={1}
+                  maximumValue={24}
+                  step={1}
+                  onValueChange={arrowsPerSet => this.setState({ arrowsPerSet })}
+                />
+                <Text>{this.state.arrowsPerSet}</Text>
                 <TextInput
-                  onChangeText={text => this.setDistance(text)}
+                  onChangeText={note => this.setState({ note })}
+                  placeholder="Comments"
                 />
               </ScrollView>
             </KeyboardAvoidingView>

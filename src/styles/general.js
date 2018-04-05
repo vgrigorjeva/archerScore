@@ -9,6 +9,7 @@ export const colors = {
   blue: '#0004ff',
   greyBackground: '#efefef',
   underlayColor: 'rgba(0,0,0,0)',
+  listItemBackground: '#6d6d6d',
 };
 
 export const fonts = {

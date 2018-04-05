@@ -65,11 +65,13 @@ export default class TrainingsListScene extends Component {
           navigation={navigation}
           goBack={false}
         />
-        <FlatList
-          data={trainings}
-          keyExtractor={item => item.itemId}
-          renderItem={this.renderItem}
-        />
+        <View style={{ marginTop: 5 }}>
+          <FlatList
+            data={trainings}
+            keyExtractor={item => item.itemId}
+            renderItem={this.renderItem}
+          />
+        </View>
         {
           showAddTrainingPopup && <NewTrainingModal
             navigation={navigation}

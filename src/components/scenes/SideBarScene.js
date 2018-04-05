@@ -31,11 +31,7 @@ export default class SideBarScene extends Component {
           case 'MY BOWS':
             return this.props.navigation.navigate('AddBow');
           case 'HOME':
-          return (
-            this.props.navigation.dispatch(NavigationActions.reset({
-              index: 0,
-              actions: [NavigationActions.navigate({ routeName: 'TrainingList' })],
-            })));
+          return this.props.navigation.navigate('TrainingList');
           case 'CALENDAR':
             return this.props.navigation.navigate('Calendar');
           case 'STATISTICS':

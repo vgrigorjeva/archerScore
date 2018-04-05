@@ -7,7 +7,9 @@ import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/addTraining';
 import NavBar from '../items/Navbar';
 import PointButton from '../items/PointButton';
+import RealmService from '../../services/realmService';
 
+let tempArray = [];
 @inject('trainingStore')
 @observer
 export default class TrainingScene extends Component {
@@ -15,19 +17,32 @@ export default class TrainingScene extends Component {
     super(props);
     this.state = {
       total: 0,
+      pointsPerCurrentSet: [],
     };
+  }
+
+  addSet() {
+    const { navigation } = this.props;
+    const { training } = navigation.state.params;
+    const trainingId = training.itemId;
+    const { pointsPerCurrentSet } = this.state;
+    RealmService.addSet({ trainingId, pointsPerCurrentSet });
+    tempArray = [];
   }
 
   updateTotal(number) {
     const prevTotal = this.state.total;
+    tempArray.push({ value: number });
     this.setState({
       total: prevTotal + number,
+      pointsPerCurrentSet: tempArray,
     });
   }
 
   render() {
     const { navigation } = this.props;
     const { training } = navigation.state.params;
+    console.warn(training);
     return (
       <View style={generalStyles.sceneContainer}>
         <NavBar
@@ -75,7 +90,7 @@ export default class TrainingScene extends Component {
             number={9}
           />
           <PointButton
-            onPress={() => this.updateTotal(10)}
+            onPress={() => this.addSet()}
             number={10}
           />
         </View>
