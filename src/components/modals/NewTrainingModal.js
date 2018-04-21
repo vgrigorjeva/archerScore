@@ -93,7 +93,7 @@ export default class NewTrainingModal extends Component {
                 </Picker>
                 <Picker
                   selectedValue={this.state.environment}
-                  onValueChange={environment => this.setState({ environment })}
+                  onValueChange={environment => this.setState({ environment, isOutdoors: true })}
                 >
                   <Picker.Item label="Indoor" value="indoor" />
                   <Picker.Item label="Outdoor" value="outdoor" />

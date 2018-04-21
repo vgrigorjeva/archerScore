@@ -131,21 +131,31 @@ const deleteTraining = ({ trainingId }) => {
   });
 };
 
+const getCurrentSet = ({ setId }) => realm.objects('Set').filtered('itemId = $0', setId)[0];
+
+const deleteSet = ({ setId }) => {
+  const set = getCurrentSet({ setId });
+  realm.write(() => {
+    realm.delete(set);
+  });
+};
+
 const addSet = ({ trainingId, pointsPerCurrentSet }) => {
-  console.warn(trainingId, pointsPerCurrentSet);
   training = getCurrentTraining({ trainingId });
   realm.write(() => {
     const set = realm.create(
       'Set',
       {
         itemId: uuidv1(),
-        sets: pointsPerCurrentSet,
+        points: pointsPerCurrentSet,
       },
     );
     training.sets.push(set);
   });
 };
 
+const getTrainingSets = trainingId =>
+  realm.objects('Training').filtered('itemId = $0', trainingId)[0].sets;
 
 export default {
   getRealm,
@@ -153,4 +163,6 @@ export default {
   getTrainings,
   deleteTraining,
   addSet,
+  getTrainingSets,
+  deleteSet,
 };

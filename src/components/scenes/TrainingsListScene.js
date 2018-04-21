@@ -11,8 +11,6 @@ import RealmService from '../../services/realmService';
 import NavBar from '../items/Navbar';
 import TrainingListItem from '../items/TrainingListItem';
 
-// import TrainingListItem from '../items/trainingListItem';
-
 @inject('trainingStore')
 @observer
 export default class TrainingsListScene extends Component {

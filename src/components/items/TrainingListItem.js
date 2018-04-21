@@ -5,8 +5,8 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
-import realmService from '../../services/realmService';
 import styles from '../../styles/items/listItem';
 
 export default class TrainingListItem extends Component {
@@ -20,8 +20,11 @@ export default class TrainingListItem extends Component {
 
   render() {
     const { training } = this.state;
-    const { navigation } = this.props;
+    const { navigation, longPress } = this.props;
     const trainingId = training.itemId;
+    const date = moment(training.date).format('YYYY-MM-DD');
+    const setsnumber = training.sets.length;
+    const arrowsPerSet = training.arrowsPerSet;
     return (
       <View style={styles.itemContainer}>
         <View>
@@ -29,12 +32,18 @@ export default class TrainingListItem extends Component {
             onPress={() => navigation.navigate('Training', {
               training,
             })}
-            onLongPress={() => realmService.deleteTraining({ trainingId })}
+            onLongPress={longPress}
           >
-            <View>
-              <Text style={styles.titleText}>
-                {training.name}
-              </Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+              <View style={{ flexDirection: 'column' }}>
+                <Text style={styles.titleText}>
+                  {training.name}
+                </Text>
+                <Text style={styles.dateText}>{date}</Text>
+              </View>
+              <View style={{ flexDirection: 'column' }}>
+                <Text style={styles.dateText}>{setsnumber} sets x {arrowsPerSet} arrows</Text>
+              </View>
             </View>
           </TouchableHighlight>
         </View>

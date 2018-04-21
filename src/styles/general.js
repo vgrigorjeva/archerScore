@@ -10,6 +10,8 @@ export const colors = {
   greyBackground: '#efefef',
   underlayColor: 'rgba(0,0,0,0)',
   listItemBackground: '#6d6d6d',
+  grey: '#727272',
+  granitGray: '#2f353b',
 };
 
 export const fonts = {

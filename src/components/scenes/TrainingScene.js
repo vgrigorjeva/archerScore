@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { inject, observer } from 'mobx-react/native';
 import PropTypes from 'prop-types';
 
@@ -7,7 +7,8 @@ import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/addTraining';
 import NavBar from '../items/Navbar';
 import PointButton from '../items/PointButton';
-import RealmService from '../../services/realmService';
+import realmService from '../../services/realmService';
+import SetListItem from '../items/SetListItem';
 
 let tempArray = [];
 @inject('trainingStore')
@@ -18,6 +19,7 @@ export default class TrainingScene extends Component {
     this.state = {
       total: 0,
       pointsPerCurrentSet: [],
+      sets: [],
     };
   }
 
@@ -26,8 +28,9 @@ export default class TrainingScene extends Component {
     const { training } = navigation.state.params;
     const trainingId = training.itemId;
     const { pointsPerCurrentSet } = this.state;
-    RealmService.addSet({ trainingId, pointsPerCurrentSet });
+    realmService.addSet({ trainingId, pointsPerCurrentSet });
     tempArray = [];
+    this.setState({ sets: this.state.sets + 1 });
   }
 
   updateTotal(number) {
@@ -39,10 +42,20 @@ export default class TrainingScene extends Component {
     });
   }
 
+  renderItem = ({ item }) => {
+    const { navigation } = this.props;
+    return (
+      <SetListItem
+        navigation={navigation}
+        points={item.points}
+        set={item}
+      />
+    );
+  };
+
   render() {
     const { navigation } = this.props;
     const { training } = navigation.state.params;
-    console.warn(training);
     return (
       <View style={generalStyles.sceneContainer}>
         <NavBar
@@ -95,6 +108,13 @@ export default class TrainingScene extends Component {
           />
         </View>
         <Text>{this.state.total}</Text>
+
+        <FlatList
+          data={training.sets}
+          keyExtractor={item => item.itemId}
+          renderItem={this.renderItem}
+          key={item => item.itemId}
+        />
       </View>
     );
   }
