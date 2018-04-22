@@ -9,6 +9,7 @@ import NavBar from '../items/Navbar';
 import PointButton from '../items/PointButton';
 import realmService from '../../services/realmService';
 import SetListItem from '../items/SetListItem';
+import I18n from '../../i18n/i18n';
 
 let tempArray = [];
 @inject('trainingStore')

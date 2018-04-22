@@ -10,6 +10,7 @@ import NewCompetitionModal from '../modals/NewCompetitionModal';
 import NavBar from '../items/Navbar';
 import RealmService from '../../services/realmService';
 import TrainingListItem from '../items/TrainingListItem';
+import I18n from '../../i18n/i18n';
 
 @inject('competitionStore')
 @observer
@@ -47,14 +48,13 @@ export default class CompetitionsListScene extends Component {
   };
 
   render() {
-    console.warn(this.state.competitions)
     const { competitions } = this.state;
     const { competitionStore, navigation } = this.props;
     const { showAddCompetitionPopup } = competitionStore;
     return (
       <View style={generalStyles.sceneContainer}>
         <NavBar
-          title="MY COMPETITIONS"
+          title={I18n.t('myCompetitions')}
           navigation={navigation}
           goBack={false}
         />

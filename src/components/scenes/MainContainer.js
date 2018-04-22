@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { DrawerNavigator, StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation/';
 
 import SideBarScene from '../scenes/SideBarScene';
@@ -10,6 +10,7 @@ import TrainingScene from '../scenes/TrainingScene';
 import TrainingsListScene from '../scenes/TrainingsListScene';
 import CompetitionsListScene from '../scenes/CompetitionsListScene';
 import { colors, fonts } from '../../styles/general';
+import I18n from '../../i18n/i18n';
 
 const TrainingStack = StackNavigator(
   {
@@ -151,10 +152,8 @@ const SideBarNavigator = DrawerNavigator(
   },
 );
 
-export default class MainContainer extends Component {
-  render() {
-    return (
-      <SideBarNavigator />
-    );
-  }
-}
+const MainContainer = () => (
+  <SideBarNavigator />
+);
+
+export default MainContainer;

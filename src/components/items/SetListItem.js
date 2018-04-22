@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   View,
   TouchableHighlight,
-  Text,
 } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -29,7 +28,6 @@ export default class SetListItem extends Component {
           <TouchableHighlight
             onLongPress={() => realmService.deleteSet({ setId })}
           >
-          
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
               {points.map(point => (
                 <PointButton
@@ -48,5 +46,6 @@ export default class SetListItem extends Component {
 
 SetListItem.propTypes = {
   points: PropTypes.object.isRequired,
+  set: PropTypes.object.isRequired,
 };
 

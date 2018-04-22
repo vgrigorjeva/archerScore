@@ -84,7 +84,7 @@ export default class NewTrainingModal extends Component {
               >
                 <TextInput
                   onChangeText={name => this.setState({ name })}
-                  placeholder="fuck"
+                  placeholder={I18n.t('name')}
                 />
                 <Picker
                   onValueChange={targetType => this.setState({ targetType })}

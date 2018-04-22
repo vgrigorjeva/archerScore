@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
-import { Calendar } from 'react-native-calendars';
+import { Calendar, LocaleConfig } from 'react-native-calendars';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
@@ -8,10 +8,18 @@ import RealmService from '../../services/realmService';
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/calendar';
 import Navbar from '../items/Navbar';
+import I18n from '../../i18n/i18n';
+import localesSv from '../../i18n/locales/calenderLocalesSv';
+import localesRu from '../../i18n/locales/calenderLocalesRu';
+import localesEn from '../../i18n/locales/calenderLocalesEn';
+import localesLt from '../../i18n/locales/calenderLocalesLt';
+
+LocaleConfig.defaultLocale = localesSv;
+LocaleConfig.defaultLocale = localesRu;
+LocaleConfig.defaultLocale = localesEn;
+LocaleConfig.defaultLocale = localesLt;
 
 const workout1 = { key: 'workout1', color: '#C63085', selectedDotColor: '#252525' };
-const workout2 = { key: 'workout2', color: '#C63085', selectedDotColor: '#FFFFFF' };
-const workout3 = { key: 'workout3', color: '#C63085', selectedDotColor: '#FFFFFF' };
 
 export default class CalendarScene extends Component {
   constructor(props) {
@@ -50,7 +58,6 @@ export default class CalendarScene extends Component {
       marked[dateKey] = { marked: true };
     });
     this.setState({ marked });
-    console.warn(this.state.marked);
   }
 
   render() {
@@ -59,7 +66,7 @@ export default class CalendarScene extends Component {
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
-          title="CALENDAR"
+          title={I18n.t('calendar')}
           navigation={navigation}
           goBack={false}
         />

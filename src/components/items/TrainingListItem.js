@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import styles from '../../styles/items/listItem';
+import I18n from '../../i18n/i18n';
 
 export default class TrainingListItem extends Component {
   constructor(props) {
@@ -21,10 +22,9 @@ export default class TrainingListItem extends Component {
   render() {
     const { training } = this.state;
     const { navigation, longPress } = this.props;
-    const trainingId = training.itemId;
     const date = moment(training.date).format('YYYY-MM-DD');
     const setsnumber = training.sets.length;
-    const arrowsPerSet = training.arrowsPerSet;
+    const { arrowsPerSet } = training;
     return (
       <View style={styles.itemContainer}>
         <View>
@@ -42,7 +42,7 @@ export default class TrainingListItem extends Component {
                 <Text style={styles.dateText}>{date}</Text>
               </View>
               <View style={{ flexDirection: 'column' }}>
-                <Text style={styles.dateText}>{setsnumber} sets x {arrowsPerSet} arrows</Text>
+                <Text style={styles.dateText}>{setsnumber} {I18n.t('sets')} x {arrowsPerSet} {I18n.t('arrows')}</Text>
               </View>
             </View>
           </TouchableHighlight>
@@ -55,4 +55,5 @@ export default class TrainingListItem extends Component {
 TrainingListItem.propTypes = {
   training: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
+  longPress: PropTypes.func.isRequired,
 };

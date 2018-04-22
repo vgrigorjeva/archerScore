@@ -8,6 +8,7 @@ import styles from '../../styles/scenes/addArrows';
 import Navbar from '../items/Navbar';
 import AddButton from '../items/buttons/AddButton';
 import NewArrowModal from '../modals/NewArrowModal';
+import I18n from '../../i18n/i18n';
 
 @inject('arrowStore')
 @observer
@@ -19,7 +20,7 @@ export default class ArrowsScene extends Component {
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
-          title="MY ARROWS"
+          title={I18n.t('myArrows')}
           navigation={navigation}
           goBack={false}
         />

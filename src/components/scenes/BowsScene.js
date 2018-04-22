@@ -8,6 +8,7 @@ import styles from '../../styles/scenes/addBows';
 import Navbar from '../items/Navbar';
 import AddButton from '../items/buttons/AddButton';
 import NewBowModal from '../modals/NewBowModal';
+import I18n from '../../i18n/i18n';
 
 @inject('bowStore')
 @observer
@@ -18,7 +19,7 @@ export default class BowsScene extends Component {
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
-          title="MY BOWS"
+          title={I18n.t('myBows')}
           navigation={navigation}
           goBack={false}
         />

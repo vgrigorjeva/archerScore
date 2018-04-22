@@ -14,6 +14,7 @@ import { inject, observer } from 'mobx-react/native';
 
 import ModalHeader from '../items/ModalHeader';
 import RealmService from '../../services/realmService';
+import I18n from '../../i18n/i18n';
 
 @inject('competitionStore')
 @observer
@@ -73,7 +74,7 @@ export default class NewCompetitionModal extends Component {
         >
           <View>
             <ModalHeader
-              title="New competition"
+              title={I18n.t('newCompetition')}
               onPress={() => togglePopup()}
               onPressDone={() => this.createCompetition()}
             />
@@ -82,7 +83,7 @@ export default class NewCompetitionModal extends Component {
               <ScrollView>
                 <TextInput
                   onChangeText={name => this.setState({ name })}
-                  placeholder="Name"
+                  placeholder={I18n.t('name')}
                 />
                 <Picker
                   onValueChange={targetType => this.setState({ targetType })}
@@ -94,15 +95,15 @@ export default class NewCompetitionModal extends Component {
                   selectedValue={this.state.environment}
                   onValueChange={environment => this.setState({ environment, isOutdoors: true })}
                 >
-                  <Picker.Item label="Indoor" value="indoor" />
-                  <Picker.Item label="Outdoor" value="outdoor" />
+                  <Picker.Item label={I18n.t('indoor')} value="indoor" />
+                  <Picker.Item label={I18n.t('outdoor')} value="outdoor" />
                 </Picker>
                 {this.state.isOutdoors &&
                 <Picker
                   onValueChange={environment => this.setState({ environment })}
                 >
-                  <Picker.Item label="Indoor" value="indoor" />
-                  <Picker.Item label="Outdoor" value="outdoor" />
+                  <Picker.Item label={I18n.t('indoor')} value="indoor" />
+                  <Picker.Item label={I18n.t('outdoor')} value="outdoor" />
                 </Picker>
                 }
                 <Slider
@@ -123,7 +124,7 @@ export default class NewCompetitionModal extends Component {
                 <Text>{this.state.arrowsPerSet}</Text>
                 <TextInput
                   onChangeText={note => this.setState({ note })}
-                  placeholder="Comments"
+                  placeholder={I18n.t('comments')}
                 />
               </ScrollView>
             </KeyboardAvoidingView>

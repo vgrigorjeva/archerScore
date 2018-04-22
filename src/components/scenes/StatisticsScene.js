@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/statistics';
 import Navbar from '../items/Navbar';
+import I18n from '../../i18n/i18n';
 
 export default class StatisticsScene extends Component {
   render() {
@@ -12,7 +13,7 @@ export default class StatisticsScene extends Component {
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
-          title="STATISTICS"
+          title={I18n.t('statistics')}
           navigation={navigation}
           goBack={false}
         />

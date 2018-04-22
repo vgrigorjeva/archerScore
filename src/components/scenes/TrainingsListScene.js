@@ -10,6 +10,7 @@ import NewTrainingModal from '../modals/NewTrainingModal';
 import RealmService from '../../services/realmService';
 import NavBar from '../items/Navbar';
 import TrainingListItem from '../items/TrainingListItem';
+import I18n from '../../i18n/i18n';
 
 @inject('trainingStore')
 @observer
@@ -59,7 +60,7 @@ export default class TrainingsListScene extends Component {
     return (
       <View style={generalStyles.sceneContainer}>
         <NavBar
-          title="MY TRAININGS"
+          title={I18n.t('myTrainings')}
           navigation={navigation}
           goBack={false}
         />

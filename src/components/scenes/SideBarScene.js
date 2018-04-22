@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableHighlight, Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { NavigationActions } from 'react-navigation';
 
 import styles from '../../styles/scenes/sidebar';
+import I18n from '../../i18n/i18n';
+
+const home = I18n.t('home');
+const myArrows = I18n.t('myArrows');
+const myBows = I18n.t('myBows');
+const calendar = I18n.t('calendar');
+const statistics = I18n.t('statistics');
 
 export const sideBarOptions = {
-  Home: 'HOME',
-  MyArrows: 'MY ARROWS',
-  MyBows: 'MY BOWS',
-  Calendar: 'CALENDAR',
-  Statistics: 'STATISTICS',
+  Home: home,
+  MyArrows: myArrows,
+  MyBows: myBows,
+  Calendar: calendar,
+  Statistics: statistics,
 };
 
 const sideBarItems = [
@@ -26,15 +32,15 @@ export default class SideBarScene extends Component {
     <TouchableHighlight
       onPress={() => {
         switch (item) {
-          case 'MY ARROWS':
+          case home:
            return this.props.navigation.navigate('AddArrows');
-          case 'MY BOWS':
+          case myBows:
             return this.props.navigation.navigate('AddBow');
-          case 'HOME':
+          case myArrows:
           return this.props.navigation.navigate('TrainingList');
-          case 'CALENDAR':
+          case calendar:
             return this.props.navigation.navigate('Calendar');
-          case 'STATISTICS':
+          case statistics:
             return this.props.navigation.navigate('Statistics');
           default:
             return null;
