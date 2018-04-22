@@ -15,11 +15,6 @@ import localesRu from '../../i18n/locales/calenderLocalesRu';
 import localesEn from '../../i18n/locales/calenderLocalesEn';
 import localesLt from '../../i18n/locales/calenderLocalesLt';
 
-LocaleConfig.defaultLocale = localesSv;
-LocaleConfig.defaultLocale = localesRu;
-LocaleConfig.defaultLocale = localesEn;
-LocaleConfig.defaultLocale = localesLt;
-
 const workout1 = { key: 'workout1', color: '#C63085', selectedDotColor: '#252525' };
 
 export default class CalendarScene extends Component {
@@ -35,6 +30,21 @@ export default class CalendarScene extends Component {
   }
 
   componentWillMount() {
+    const currentLocale = I18n.currentLocale();
+    switch (currentLocale) {
+      case 'sv-SE':
+        LocaleConfig.defaultLocale = localesSv;
+        break;
+      case 'ru-RU':
+        LocaleConfig.defaultLocale = localesRu;
+        break;
+      case 'lt-LT':
+        LocaleConfig.defaultLocale = localesLt;
+        break;
+      default:
+        LocaleConfig.defaultLocale = localesEn;
+    }
+
     RealmService.getRealm()
       .then(() => {
         const trainings = RealmService.getTrainings();

@@ -12,7 +12,7 @@ const calendar = I18n.t('calendar');
 const statistics = I18n.t('statistics');
 
 export const sideBarOptions = {
-  Home: 'HOME',
+  Home: home,
   MyArrows: myArrows,
   MyBows: myBows,
   Calendar: calendar,
