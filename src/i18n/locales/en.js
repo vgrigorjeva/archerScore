@@ -10,7 +10,7 @@ export default {
   myArrows: 'MY ARROWS',
   myBows: 'MY BOWS',
   calendar: 'CALENDAR',
-  myCompetitions: 'MY TRAININGS',
+  myCompetitions: 'MY COMPETITIONS',
   statistics: 'STATISTICS',
   myTrainings: 'MY TRAININGS',
   home: 'HOME',
