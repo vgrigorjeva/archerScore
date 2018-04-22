@@ -12,7 +12,7 @@ const calendar = I18n.t('calendar');
 const statistics = I18n.t('statistics');
 
 export const sideBarOptions = {
-  Home: home,
+  Home: 'HOME',
   MyArrows: myArrows,
   MyBows: myBows,
   Calendar: calendar,
@@ -32,12 +32,12 @@ export default class SideBarScene extends Component {
     <TouchableHighlight
       onPress={() => {
         switch (item) {
-          case home:
-           return this.props.navigation.navigate('AddArrows');
+          case myArrows:
+            return this.props.navigation.navigate('AddArrows');
           case myBows:
             return this.props.navigation.navigate('AddBow');
-          case myArrows:
-          return this.props.navigation.navigate('TrainingList');
+          case home:
+            return this.props.navigation.navigate('TrainingList');
           case calendar:
             return this.props.navigation.navigate('Calendar');
           case statistics:

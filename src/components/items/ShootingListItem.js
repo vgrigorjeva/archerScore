@@ -10,34 +10,36 @@ import moment from 'moment';
 import styles from '../../styles/items/listItem';
 import I18n from '../../i18n/i18n';
 
-export default class TrainingListItem extends Component {
+export default class ShootingListItem extends Component {
   constructor(props) {
     super(props);
-    const { training } = this.props;
+    const { item } = this.props;
     this.state = {
-      training,
+      item,
     };
   }
 
   render() {
-    const { training } = this.state;
-    const { navigation, longPress } = this.props;
-    const date = moment(training.date).format('YYYY-MM-DD');
-    const setsnumber = training.sets.length;
-    const { arrowsPerSet } = training;
+    const { item } = this.state;
+    const { navigation, longPress, isTraining } = this.props;
+    const date = moment(item.date).format('YYYY-MM-DD');
+    const setsnumber = item.sets.length;
+    const { arrowsPerSet } = item;
     return (
       <View style={styles.itemContainer}>
         <View>
           <TouchableHighlight
-            onPress={() => navigation.navigate('Training', {
-              training,
-            })}
+            onPress={() => (isTraining ? navigation.navigate('Training', {
+              training: item,
+            }) : navigation.navigate('Competition', {
+              competition: item,
+            }))}
             onLongPress={longPress}
           >
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
               <View style={{ flexDirection: 'column' }}>
                 <Text style={styles.titleText}>
-                  {training.name}
+                  {item.name}
                 </Text>
                 <Text style={styles.dateText}>{date}</Text>
               </View>
@@ -52,8 +54,9 @@ export default class TrainingListItem extends Component {
   }
 }
 
-TrainingListItem.propTypes = {
-  training: PropTypes.object.isRequired,
+ShootingListItem.propTypes = {
+  item: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
   longPress: PropTypes.func.isRequired,
+  isTraining: PropTypes.bool.isRequired,
 };

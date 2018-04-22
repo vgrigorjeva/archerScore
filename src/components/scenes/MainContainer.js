@@ -8,9 +8,9 @@ import CalendarScene from '../scenes/CalendarScene';
 import StatisticsScene from '../scenes/StatisticsScene';
 import TrainingScene from '../scenes/TrainingScene';
 import TrainingsListScene from '../scenes/TrainingsListScene';
+import CompetitionScene from '../scenes/CompetitionScene';
 import CompetitionsListScene from '../scenes/CompetitionsListScene';
 import { colors, fonts } from '../../styles/general';
-import I18n from '../../i18n/i18n';
 
 const TrainingStack = StackNavigator(
   {
@@ -35,6 +35,12 @@ const CompetitionStack = StackNavigator(
   {
     CompetitionList: {
       screen: CompetitionsListScene,
+    },
+    Competition: {
+      screen: CompetitionScene,
+      navigationOptions: {
+        tabBarVisible: false,
+      },
     },
   },
   {

@@ -11,7 +11,7 @@ import SetListItem from '../items/SetListItem';
 
 let tempArray = [];
 
-export default class TrainingScene extends Component {
+export default class CompetitionScene extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,10 +23,10 @@ export default class TrainingScene extends Component {
 
   addSet() {
     const { navigation } = this.props;
-    const { training } = navigation.state.params;
-    const trainingId = training.itemId;
+    const { competition } = navigation.state.params;
+    const competitionId = competition.itemId;
     const { pointsPerCurrentSet } = this.state;
-    realmService.addTrainingSet({ trainingId, pointsPerCurrentSet });
+    realmService.addCompetitionSet({ competitionId, pointsPerCurrentSet });
     tempArray = [];
     this.setState({ sets: this.state.sets + 1 });
   }
@@ -53,11 +53,11 @@ export default class TrainingScene extends Component {
 
   render() {
     const { navigation } = this.props;
-    const { training } = navigation.state.params;
+    const { competition } = navigation.state.params;
     return (
       <View style={generalStyles.sceneContainer}>
         <NavBar
-          title={training.name}
+          title={competition.name}
           navigation={navigation}
           goBack
         />
@@ -108,7 +108,7 @@ export default class TrainingScene extends Component {
         <Text>{this.state.total}</Text>
 
         <FlatList
-          data={training.sets}
+          data={competition.sets}
           keyExtractor={item => item.itemId}
           renderItem={this.renderItem}
           key={item => item.itemId}
@@ -118,6 +118,6 @@ export default class TrainingScene extends Component {
   }
 }
 
-TrainingScene.propTypes = {
+CompetitionScene.propTypes = {
   navigation: PropTypes.object.isRequired,
 };

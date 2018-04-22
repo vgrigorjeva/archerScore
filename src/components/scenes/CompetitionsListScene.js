@@ -9,7 +9,7 @@ import AddButton from '../items/buttons/AddButton';
 import NewCompetitionModal from '../modals/NewCompetitionModal';
 import NavBar from '../items/Navbar';
 import RealmService from '../../services/realmService';
-import TrainingListItem from '../items/TrainingListItem';
+import ShootingListItem from '../items/ShootingListItem';
 import I18n from '../../i18n/i18n';
 
 @inject('competitionStore')
@@ -39,10 +39,13 @@ export default class CompetitionsListScene extends Component {
 
   renderItem = ({ item }) => {
     const { navigation } = this.props;
+    const competitionId = item.itemId;
     return (
-      <TrainingListItem
-        training={item}
+      <ShootingListItem
+        item={item}
         navigation={navigation}
+        longPress={() => RealmService.deleteCompetition({ competitionId })}
+        isTraining={false}
       />
     );
   };

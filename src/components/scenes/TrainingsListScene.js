@@ -9,7 +9,7 @@ import AddButton from '../items/buttons/AddButton';
 import NewTrainingModal from '../modals/NewTrainingModal';
 import RealmService from '../../services/realmService';
 import NavBar from '../items/Navbar';
-import TrainingListItem from '../items/TrainingListItem';
+import ShootingListItem from '../items/ShootingListItem';
 import I18n from '../../i18n/i18n';
 
 @inject('trainingStore')
@@ -44,11 +44,14 @@ export default class TrainingsListScene extends Component {
   }
 
   renderItem = ({ item }) => {
+    const trainingId = item.itemId;
     const { navigation } = this.props;
     return (
-      <TrainingListItem
-        training={item}
+      <ShootingListItem
+        item={item}
         navigation={navigation}
+        longPress={() => RealmService.deleteTraining({ trainingId })}
+        isTraining
       />
     );
   };

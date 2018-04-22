@@ -78,7 +78,6 @@ export default class NewCompetitionModal extends Component {
               onPress={() => togglePopup()}
               onPressDone={() => this.createCompetition()}
             />
-            <Text>New competition</Text>
             <KeyboardAvoidingView>
               <ScrollView>
                 <TextInput
