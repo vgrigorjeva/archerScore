@@ -3,9 +3,28 @@ import uuidv1 from 'uuid';
 
 let realm = null;
 let training = null;
+let competition = null;
 
 const TrainingSchema = {
   name: 'Training',
+  primaryKey: 'itemId',
+  properties: {
+    itemId: 'string',
+    name: 'string?',
+    date: 'date',
+    targetType: 'string?',
+    bow: 'string?',
+    distance: 'int?',
+    arrowsPerSet: 'int?',
+    environment: 'string?',
+    note: 'string?',
+    arrow: 'string?',
+    sets: 'Set[]',
+  },
+};
+
+const CompetitionSchema = {
+  name: 'Competition',
   primaryKey: 'itemId',
   properties: {
     itemId: 'string',
@@ -76,6 +95,7 @@ const getRealm = () =>
       Realm.open({
         schema: [
           TrainingSchema,
+          CompetitionSchema,
           BowSchema,
           SightSchema,
           PointSchema,
@@ -131,16 +151,7 @@ const deleteTraining = ({ trainingId }) => {
   });
 };
 
-const getCurrentSet = ({ setId }) => realm.objects('Set').filtered('itemId = $0', setId)[0];
-
-const deleteSet = ({ setId }) => {
-  const set = getCurrentSet({ setId });
-  realm.write(() => {
-    realm.delete(set);
-  });
-};
-
-const addSet = ({ trainingId, pointsPerCurrentSet }) => {
+const addTrainingSet = ({ trainingId, pointsPerCurrentSet }) => {
   training = getCurrentTraining({ trainingId });
   realm.write(() => {
     const set = realm.create(
@@ -156,13 +167,84 @@ const addSet = ({ trainingId, pointsPerCurrentSet }) => {
 
 const getTrainingSets = trainingId =>
   realm.objects('Training').filtered('itemId = $0', trainingId)[0].sets;
+const createCompetition = ({
+  name,
+  targetType,
+  bow,
+  distance,
+  arrowsPerSet,
+  environment,
+  note,
+  arrow,
+}) => {
+  realm.write(() => {
+    competition = realm.create(
+      'Competition',
+      {
+        itemId: uuidv1(),
+        name,
+        date: new Date(),
+        targetType,
+        bow,
+        distance,
+        arrowsPerSet,
+        environment,
+        note,
+        arrow,
+      },
+    );
+  });
+  return competition;
+};
+
+const getCompetitions = () => realm.objects('Competition').sorted('date', true);
+
+const getCurrentCompetition = ({ competitionId }) => realm.objects('Competition').filtered('itemId = $0', competitionId)[0];
+
+const deleteCompetition = ({ competitionId }) => {
+  competition = getCurrentCompetition({ competitionId });
+  realm.write(() => {
+    realm.delete(competition);
+  });
+};
+
+const addCompetitionSet = ({ competitionId, pointsPerCurrentSet }) => {
+  competition = getCurrentCompetition({ competitionId });
+  realm.write(() => {
+    const set = realm.create(
+      'Set',
+      {
+        itemId: uuidv1(),
+        points: pointsPerCurrentSet,
+      },
+    );
+    competition.sets.push(set);
+  });
+};
+
+const getCompetitionSets = competitionId =>
+  realm.objects('Competition').filtered('itemId = $0', competitionId)[0].sets;
+
+const getCurrentSet = ({ setId }) => realm.objects('Set').filtered('itemId = $0', setId)[0];
+
+const deleteSet = ({ setId }) => {
+  const set = getCurrentSet({ setId });
+  realm.write(() => {
+    realm.delete(set);
+  });
+};
 
 export default {
   getRealm,
   createTraining,
   getTrainings,
   deleteTraining,
-  addSet,
+  createCompetition,
+  getCompetitions,
+  deleteCompetition,
+  addCompetitionSet,
+  getCompetitionSets,
+  addTrainingSet,
   getTrainingSets,
   deleteSet,
 };

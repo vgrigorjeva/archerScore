@@ -4,21 +4,53 @@ import { Calendar } from 'react-native-calendars';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
+import RealmService from '../../services/realmService';
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/calendar';
 import Navbar from '../items/Navbar';
 
+const workout1 = { key: 'workout1', color: '#C63085', selectedDotColor: '#252525' };
+const workout2 = { key: 'workout2', color: '#C63085', selectedDotColor: '#FFFFFF' };
+const workout3 = { key: 'workout3', color: '#C63085', selectedDotColor: '#FFFFFF' };
+
 export default class CalendarScene extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      marked: {},
+    };
     this.onDayPress = this.onDayPress.bind(this);
+  }
+
+  componentWillMount() {
+    RealmService.getRealm()
+      .then(() => {
+        const trainings = RealmService.getTrainings();
+        this.setState({
+          trainings,
+        });
+        this.getDatesWithContent();
+      });
   }
 
   onDayPress(day) {
     this.setState({
       selected: day.dateString,
     });
+  }
+
+  getDatesWithContent() {
+    const datesWithContent = {};
+    this.state.trainings.forEach((training) => {
+      const date = moment(training.date).format('YYYY-MM-DD');
+      datesWithContent[date] = { dots: [workout1] };
+    });
+    const marked = {};
+    Object.keys(datesWithContent).forEach((dateKey) => {
+      marked[dateKey] = { marked: true };
+    });
+    this.setState({ marked });
+    console.warn(this.state.marked);
   }
 
   render() {
@@ -37,10 +69,13 @@ export default class CalendarScene extends Component {
             style={styles.calendar}
             current={(this.state.selected) || today}
             firstDay={1}
-            markedDates={{ [this.state.selected]: { selected: true } }}
-            /*  markedDates={{
-               [today]: { selected: true, marked: true },
-             }} */
+            markedDates={Object.assign(
+{
+              [this.state.selected]: { selected: true },
+            },
+              this.state.marked,
+            )}
+           // markingType="multi-dot"
             theme={{
               dayTextColor: '#000000',
               todayTextColor: '#ff0000',
