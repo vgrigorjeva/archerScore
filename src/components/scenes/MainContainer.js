@@ -111,6 +111,18 @@ const CalendarNavigationStack = StackNavigator(
     Calendar: {
       screen: CalendarScene,
     },
+    Training: {
+      screen: TrainingScene,
+      navigationOptions: {
+        tabBarVisible: false,
+      },
+    },
+    Competition: {
+      screen: CompetitionScene,
+      navigationOptions: {
+        tabBarVisible: false,
+      },
+    },
   },
   {
     navigationOptions: {

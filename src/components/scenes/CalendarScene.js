@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, FlatList } from 'react-native';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import moment from 'moment';
 import PropTypes from 'prop-types';
@@ -8,6 +8,7 @@ import RealmService from '../../services/realmService';
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/calendar';
 import Navbar from '../items/Navbar';
+import ShootingListItem from '../items/ShootingListItem';
 import I18n from '../../i18n/i18n';
 import localesSv from '../../i18n/locales/calenderLocalesSv';
 import localesRu from '../../i18n/locales/calenderLocalesRu';
@@ -26,6 +27,9 @@ export default class CalendarScene extends Component {
     super(props);
     this.state = {
       marked: {},
+      trainings: [],
+      competitions: [],
+      allShootings: [],
     };
     this.onDayPress = this.onDayPress.bind(this);
   }
@@ -34,8 +38,12 @@ export default class CalendarScene extends Component {
     RealmService.getRealm()
       .then(() => {
         const trainings = RealmService.getTrainings();
+        const competitions = RealmService.getCompetitions();
+        const allShootings = trainings.concat(competitions);
         this.setState({
           trainings,
+          competitions,
+          allShootings,
         });
         this.getDatesWithContent();
       });
@@ -60,9 +68,23 @@ export default class CalendarScene extends Component {
     this.setState({ marked });
   }
 
+  renderItem = ({ item }) => {
+    const trainingId = item.itemId;
+    const { navigation } = this.props;
+    return (
+      <ShootingListItem
+        item={item}
+        navigation={navigation}
+        longPress={() => RealmService.deleteTraining({ trainingId })}
+        isTraining
+      />
+    );
+  };
+
   render() {
     const today = moment().format('YYYY-MM-DD');
     const { navigation } = this.props;
+    const { allShootings, trainings, competitions } = this.state;
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
@@ -113,6 +135,11 @@ export default class CalendarScene extends Component {
                 },
               },
             }}
+          />
+          <FlatList
+            data={competitions}
+            keyExtractor={item => item.itemId}
+            renderItem={this.renderItem}
           />
         </ScrollView>
       </View>
