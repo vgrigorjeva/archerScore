@@ -11,6 +11,7 @@ import TrainingsListScene from '../scenes/TrainingsListScene';
 import CompetitionScene from '../scenes/CompetitionScene';
 import CompetitionsListScene from '../scenes/CompetitionsListScene';
 import { colors, fonts } from '../../styles/general';
+import I18n from '../../i18n/i18n';
 
 const TrainingStack = StackNavigator(
   {
@@ -54,9 +55,15 @@ const HomeNavigationStack = TabNavigator(
   {
     Trainings: {
       screen: TrainingStack,
+      navigationOptions: {
+        tabBarLabel: I18n.t('trainings'),
+      },
     },
     Competitions: {
       screen: CompetitionStack,
+      navigationOptions: {
+        tabBarLabel: I18n.t('competitions'),
+      },
     },
   },
   {
