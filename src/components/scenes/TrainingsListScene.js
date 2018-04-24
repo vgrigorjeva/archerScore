@@ -12,6 +12,8 @@ import NavBar from '../items/Navbar';
 import ShootingListItem from '../items/ShootingListItem';
 import I18n from '../../i18n/i18n';
 
+let trainings = [];
+
 @inject('trainingStore')
 @observer
 export default class TrainingsListScene extends Component {
@@ -26,12 +28,16 @@ export default class TrainingsListScene extends Component {
   componentWillMount() {
     RealmService.getRealm()
       .then(() => {
-        const trainings = RealmService.getTrainings();
+        trainings = RealmService.getTrainings();
         trainings.addListener(this.onChange);
         this.setState({
           trainings,
         });
       });
+  }
+
+  componentWillUnmount() {
+    trainings.removeAllListeners();
   }
 
   onChange() {
