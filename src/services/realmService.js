@@ -9,6 +9,7 @@ const TrainingSchema = {
   name: 'Training',
   primaryKey: 'itemId',
   properties: {
+    key: 'string',
     itemId: 'string',
     name: 'string?',
     date: 'date',
@@ -27,6 +28,7 @@ const CompetitionSchema = {
   name: 'Competition',
   primaryKey: 'itemId',
   properties: {
+    key: 'string',
     itemId: 'string',
     name: 'string?',
     date: 'date',
@@ -125,6 +127,7 @@ const createTraining = ({
       'Training',
       {
         itemId: uuidv1(),
+        key: 'training',
         name,
         date: new Date(),
         targetType,
@@ -182,6 +185,7 @@ const createCompetition = ({
       'Competition',
       {
         itemId: uuidv1(),
+        key: 'competition',
         name,
         date: new Date(),
         targetType,

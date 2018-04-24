@@ -81,12 +81,13 @@ export default class CalendarScene extends Component {
   renderItem = ({ item }) => {
     const trainingId = item.itemId;
     const { navigation } = this.props;
+    const isTraining = item.key === 'training';
     return (
       <ShootingListItem
         item={item}
         navigation={navigation}
         longPress={() => RealmService.deleteTraining({ trainingId })}
-        isTraining
+        isTraining={isTraining}
       />
     );
   };
@@ -147,7 +148,7 @@ export default class CalendarScene extends Component {
             }}
           />
           <FlatList
-            data={competitions}
+            data={trainings}
             keyExtractor={item => item.itemId}
             renderItem={this.renderItem}
           />
