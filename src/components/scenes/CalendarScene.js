@@ -16,17 +16,21 @@ import localesEn from '../../i18n/locales/calenderLocalesEn';
 import localesLt from '../../i18n/locales/calenderLocalesLt';
 
 const workout1 = { key: 'workout1', color: '#C63085', selectedDotColor: '#252525' };
+let trainingss = [];
+let competitionss = [];
 
 export default class CalendarScene extends Component {
   constructor(props) {
     super(props);
+    this.onChangeTrainings = this.onChangeTrainings.bind(this);
+    this.onChangeCompetitions = this.onChangeCompetitions.bind(this);
+    this.onDayPress = this.onDayPress.bind(this);
     this.state = {
       marked: {},
       trainings: [],
       competitions: [],
       allShootings: [],
     };
-    this.onDayPress = this.onDayPress.bind(this);
   }
 
   componentWillMount() {
@@ -47,15 +51,44 @@ export default class CalendarScene extends Component {
 
     RealmService.getRealm()
       .then(() => {
-        const trainings = RealmService.getTrainings();
-        const competitions = RealmService.getCompetitions();
-        const allShootings = trainings.concat(competitions);
+        trainingss = RealmService.getTrainings();
+        competitionss = RealmService.getCompetitions();
+        trainingss.addListener(this.onChangeTrainings);
+        competitionss.addListener(this.onChangeCompetitions);
+        const allShootings = trainingss.concat(competitionss);
         this.setState({
-          trainings,
-          competitions,
+          trainings: trainingss,
+          competitions: competitionss,
           allShootings,
         });
         this.getDatesWithContent();
+      });
+  }
+
+  componentWillUnmount() {
+    console.warn('unmount calendar')
+    trainingss.removeAllListeners();
+    competitionss.removeAllListeners();
+  }
+
+
+  onChangeTrainings() {
+    console.warn('trainings changed')
+    RealmService.getRealm()
+      .then(() => {
+        this.setState({
+          trainings: RealmService.getTrainings(),
+        });
+      });
+  }
+
+  onChangeCompetitions() {
+    console.warn('comps change')
+    RealmService.getRealm()
+      .then(() => {
+        this.setState({
+          competitions: RealmService.getCompetitions(),
+        });
       });
   }
 
@@ -148,7 +181,7 @@ export default class CalendarScene extends Component {
             }}
           />
           <FlatList
-            data={trainings}
+            data={competitions}
             keyExtractor={item => item.itemId}
             renderItem={this.renderItem}
           />
