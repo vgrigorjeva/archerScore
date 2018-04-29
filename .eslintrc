@@ -18,7 +18,8 @@
     }],
     "react/forbid-prop-types": [0, {
       "forbid": []
-    }]
+    }],
+    "linebreak-style": 0
   },
   "env": {
     "jest": true
