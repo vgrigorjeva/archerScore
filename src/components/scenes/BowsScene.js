@@ -8,33 +8,37 @@ import styles from '../../styles/scenes/addBows';
 import Navbar from '../items/Navbar';
 import AddButton from '../items/buttons/AddButton';
 import NewBowModal from '../modals/NewBowModal';
+import I18n from '../../i18n/i18n';
 
 @inject('bowStore')
 @observer
 export default class BowsScene extends Component {
   render() {
-    const { showAddBowPopup } = this.props.bowStore;
+    const { bowStore, navigation } = this.props;
+    const { showAddBowPopup } = bowStore;
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
-          title="MY BOWS"
-          navigation={this.props.navigation}
+          title={I18n.t('myBows')}
+          navigation={navigation}
+          goBack={false}
         />
-        <AddButton onPress={() => { this.props.bowStore.setShowAddBowPopup(true); }} />
+      
         <Text>
           bows
         </Text>
         {
           showAddBowPopup && <NewBowModal
-            togglePopup={() => { this.props.bowStore.setShowAddBowPopup(false); }}
+            togglePopup={() => { bowStore.setShowAddBowPopup(false); }}
+            navigation={this.props.navigation}
           />
         }
+        <AddButton onPress={() => { bowStore.setShowAddBowPopup(true); }} />
       </View>
     );
   }
 }
 
 BowsScene.propTypes = {
-  bowStore: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
 };

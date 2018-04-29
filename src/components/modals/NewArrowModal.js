@@ -10,19 +10,23 @@ import {
 import PropTypes from 'prop-types';
 
 import ModalHeader from '../items/ModalHeader';
+import I18n from '../../i18n/i18n';
 
 export default class NewArrowModal extends Component {
   render() {
+    const { togglePopup } = this.props;
     return (
       <View>
         <Modal
           animationType="slide"
-          onRequestClose={() => this.props.togglePopup()}
+          onRequestClose={() => togglePopup()}
         >
           <View>
             <ModalHeader
-              title="Add arrow"
-              onPress={() => this.props.togglePopup()}
+              title={I18n.t('newArrow')}
+              onPress={() => togglePopup()}
+              onPressDone={() => togglePopup()}
+
             />
             <Text>New arrow</Text>
             <KeyboardAvoidingView>

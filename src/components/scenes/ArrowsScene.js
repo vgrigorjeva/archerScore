@@ -8,25 +8,29 @@ import styles from '../../styles/scenes/addArrows';
 import Navbar from '../items/Navbar';
 import AddButton from '../items/buttons/AddButton';
 import NewArrowModal from '../modals/NewArrowModal';
+import I18n from '../../i18n/i18n';
 
 @inject('arrowStore')
 @observer
 export default class ArrowsScene extends Component {
   render() {
-    const { showAddArrowPopup } = this.props.arrowStore;
+    const { arrowStore, navigation } = this.props;
+    const { showAddArrowPopup } = arrowStore;
+
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
-          title="MY ARROWS"
-          navigation={this.props.navigation}
+          title={I18n.t('myArrows')}
+          navigation={navigation}
+          goBack={false}
         />
-        <AddButton onPress={() => { this.props.arrowStore.setShowAddArrowPopup(true); }} />
+        <AddButton onPress={() => { arrowStore.setShowAddArrowPopup(true); }} />
         <Text>
           arrows
         </Text>
         {
           showAddArrowPopup && <NewArrowModal
-            togglePopup={() => { this.props.arrowStore.setShowAddArrowPopup(false); }}
+            togglePopup={() => { arrowStore.setShowAddArrowPopup(false); }}
           />
         }
       </View>
@@ -35,6 +39,5 @@ export default class ArrowsScene extends Component {
 }
 
 ArrowsScene.propTypes = {
-  arrowStore: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
 };

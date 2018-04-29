@@ -12,6 +12,8 @@ target 'ArcheryNotes' do
   target 'ArcheryNotes-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RNI18n', :path => '../node_modules/react-native-i18n'
+
   end
 
   target 'ArcheryNotesTests' do

@@ -1,23 +1,89 @@
-import React, { Component } from 'react';
-import { DrawerNavigator, StackNavigator } from 'react-navigation/';
+import React from 'react';
+import { DrawerNavigator, StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation/';
 
 import SideBarScene from '../scenes/SideBarScene';
-import HomeScene from '../scenes/HomeScene';
 import BowsScene from '../scenes/BowsScene';
 import ArrowsScene from '../scenes/ArrowsScene';
 import CalendarScene from '../scenes/CalendarScene';
 import StatisticsScene from '../scenes/StatisticsScene';
+import TrainingScene from '../scenes/TrainingScene';
+import TrainingsListScene from '../scenes/TrainingsListScene';
+import CompetitionScene from '../scenes/CompetitionScene';
+import CompetitionsListScene from '../scenes/CompetitionsListScene';
+import { colors, fonts } from '../../styles/general';
+import I18n from '../../i18n/i18n';
 
-const HomeNavigationStack = StackNavigator(
+const TrainingStack = StackNavigator(
   {
-    Home: {
-      screen: HomeScene,
+    TrainingList: {
+      screen: TrainingsListScene,
+    },
+    Training: {
+      screen: TrainingScene,
+      navigationOptions: {
+        tabBarVisible: false,
+      },
     },
   },
   {
     navigationOptions: {
       header: null,
     },
+  },
+);
+
+const CompetitionStack = StackNavigator(
+  {
+    CompetitionList: {
+      screen: CompetitionsListScene,
+    },
+    Competition: {
+      screen: CompetitionScene,
+      navigationOptions: {
+        tabBarVisible: false,
+      },
+    },
+  },
+  {
+    navigationOptions: {
+      header: null,
+    },
+  },
+);
+
+const HomeNavigationStack = TabNavigator(
+  {
+    Trainings: {
+      screen: TrainingStack,
+      navigationOptions: {
+        tabBarLabel: I18n.t('trainings'),
+      },
+    },
+    Competitions: {
+      screen: CompetitionStack,
+      navigationOptions: {
+        tabBarLabel: I18n.t('competitions'),
+      },
+    },
+  },
+  {
+    navigationOptions: {
+      header: null,
+    },
+    tabBarOptions: {
+      activeBackgroundColor: colors.black,
+      inactiveBackgroundColor: colors.blackInactive,
+      activeTintColor: colors.yellow,
+      inactiveTintColor: colors.greyBackground,
+      labelStyle: {
+        fontSize: 24,
+        fontFamily: fonts.main,
+      },
+    },
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
+    animationEnabled: false,
+    swipeEnabled: true,
   },
 );
 
@@ -51,6 +117,18 @@ const CalendarNavigationStack = StackNavigator(
   {
     Calendar: {
       screen: CalendarScene,
+    },
+    Training: {
+      screen: TrainingScene,
+      navigationOptions: {
+        tabBarVisible: false,
+      },
+    },
+    Competition: {
+      screen: CompetitionScene,
+      navigationOptions: {
+        tabBarVisible: false,
+      },
     },
   },
   {
@@ -99,10 +177,8 @@ const SideBarNavigator = DrawerNavigator(
   },
 );
 
-export default class MainContainer extends Component {
-  render() {
-    return (
-      <SideBarNavigator />
-    );
-  }
-}
+const MainContainer = () => (
+  <SideBarNavigator />
+);
+
+export default MainContainer;

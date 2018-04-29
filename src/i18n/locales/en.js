@@ -1,0 +1,22 @@
+export default {
+  newTraining: 'NEW TRAINING',
+  name: 'Name',
+  indoor: 'Indoors',
+  outdoor: 'Outdoors',
+  comments: 'Comments',
+  newArrow: 'NEW BOW',
+  newBow: 'NEW ARROW',
+  newCompetition: 'NEW COMPETITION',
+  myArrows: 'MY ARROWS',
+  myBows: 'MY BOWS',
+  calendar: 'CALENDAR',
+  myCompetitions: 'MY COMPETITIONS',
+  statistics: 'STATISTICS',
+  myTrainings: 'MY TRAININGS',
+  home: 'HOME',
+  trainings: 'TRAININGS',
+  competitions: 'COMPETITIONS',
+  sets: 'sets',
+  arrows: 'arrows',
+};
+

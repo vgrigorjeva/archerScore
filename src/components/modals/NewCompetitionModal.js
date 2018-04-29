@@ -3,31 +3,128 @@ import {
   Modal,
   View,
   Text,
-  ScrollView,
   KeyboardAvoidingView,
+  ScrollView,
   TextInput,
+  Picker,
+  Slider,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react/native';
 
 import ModalHeader from '../items/ModalHeader';
+import RealmService from '../../services/realmService';
+import I18n from '../../i18n/i18n';
 
+@inject('competitionStore')
+@observer
 export default class NewCompetitionModal extends Component {
+  constructor(props) {
+    super(props);
+    this.createCompetition = this.createCompetition.bind(this);
+    this.state = {
+      name: '',
+      targetType: '',
+      bow: '',
+      distance: 18,
+      arrowsPerSet: 3,
+      environment: '',
+      note: '',
+      arrow: '',
+      isOutdoors: false,
+    };
+  }
+
+  createCompetition() {
+    const {
+      name,
+      targetType,
+      bow,
+      distance,
+      arrowsPerSet,
+      environment,
+      note,
+      arrow,
+    } = this.state;
+    const { competitionStore, togglePopup } = this.props;
+    const competition = RealmService.createCompetition({
+      name,
+      targetType,
+      bow,
+      distance,
+      arrowsPerSet,
+      environment,
+      note,
+      arrow,
+    });
+    this.setState({
+      competition,
+    });
+    togglePopup();
+    competitionStore.setShowAddCompetitionPopup(false);
+  }
+
   render() {
+    const { togglePopup } = this.props;
     return (
       <View>
         <Modal
           animationType="slide"
-          onRequestClose={() => this.props.togglePopup()}
+          onRequestClose={() => togglePopup()}
         >
           <View>
             <ModalHeader
-              title="New competition"
-              onPress={() => this.props.togglePopup()}
+              title={I18n.t('newCompetition')}
+              onPress={() => togglePopup()}
+              onPressDone={() => this.createCompetition()}
             />
-            <Text>New competition</Text>
             <KeyboardAvoidingView>
               <ScrollView>
-                <TextInput />
+                <TextInput
+                  onChangeText={name => this.setState({ name })}
+                  placeholder={I18n.t('name')}
+                />
+                <Picker
+                  onValueChange={targetType => this.setState({ targetType })}
+                >
+                  <Picker.Item label="Barebow" value="barebow" />
+                  <Picker.Item label="Compound" value="compound" />
+                </Picker>
+                <Picker
+                  selectedValue={this.state.environment}
+                  onValueChange={environment => this.setState({ environment, isOutdoors: true })}
+                >
+                  <Picker.Item label={I18n.t('indoor')} value="indoor" />
+                  <Picker.Item label={I18n.t('outdoor')} value="outdoor" />
+                </Picker>
+                {this.state.isOutdoors &&
+                <Picker
+                  onValueChange={environment => this.setState({ environment })}
+                >
+                  <Picker.Item label={I18n.t('indoor')} value="indoor" />
+                  <Picker.Item label={I18n.t('outdoor')} value="outdoor" />
+                </Picker>
+                }
+                <Slider
+                  value={this.state.distance}
+                  minimumValue={1}
+                  maximumValue={70}
+                  step={1}
+                  onValueChange={distance => this.setState({ distance })}
+                />
+                <Text>{this.state.distance}</Text>
+                <Slider
+                  value={this.state.arrowsPerSet}
+                  minimumValue={1}
+                  maximumValue={24}
+                  step={1}
+                  onValueChange={arrowsPerSet => this.setState({ arrowsPerSet })}
+                />
+                <Text>{this.state.arrowsPerSet}</Text>
+                <TextInput
+                  onChangeText={note => this.setState({ note })}
+                  placeholder={I18n.t('comments')}
+                />
               </ScrollView>
             </KeyboardAvoidingView>
           </View>
