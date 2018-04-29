@@ -66,14 +66,12 @@ export default class CalendarScene extends Component {
   }
 
   componentWillUnmount() {
-    console.warn('unmount calendar')
     trainingss.removeAllListeners();
     competitionss.removeAllListeners();
   }
 
 
   onChangeTrainings() {
-    console.warn('trainings changed')
     RealmService.getRealm()
       .then(() => {
         this.setState({
@@ -83,7 +81,6 @@ export default class CalendarScene extends Component {
   }
 
   onChangeCompetitions() {
-    console.warn('comps change')
     RealmService.getRealm()
       .then(() => {
         this.setState({
