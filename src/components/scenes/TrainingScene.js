@@ -18,7 +18,13 @@ export default class TrainingScene extends Component {
       total: 0,
       pointsPerCurrentSet: [],
       sets: [],
+      amountOfShots: 0,
+      totalCountOfArrows: 0,
     };
+  }
+
+  componentWillMount() {
+    this.count();
   }
 
   addSet() {
@@ -28,7 +34,12 @@ export default class TrainingScene extends Component {
     const { pointsPerCurrentSet } = this.state;
     realmService.addTrainingSet({ trainingId, pointsPerCurrentSet });
     tempArray = [];
-    this.setState({ sets: this.state.sets + 1 });
+    this.setState({
+      sets: this.state.sets + 1,
+      total: 0,
+      amountOfShots: 0,
+      totalCountOfArrows: 0,
+    }, () => this.count());
   }
 
   updateTotal(number) {
@@ -37,6 +48,19 @@ export default class TrainingScene extends Component {
     this.setState({
       total: prevTotal + number,
       pointsPerCurrentSet: tempArray,
+    });
+  }
+
+  count() {
+    const { navigation } = this.props;
+    const { training: { sets } } = navigation.state.params;
+    sets.forEach((set) => {
+      set.points.forEach((point) => {
+        this.setState({
+          amountOfShots: this.state.amountOfShots += 1,
+          totalCountOfArrows: this.state.totalCountOfArrows += point.value
+        });
+      });
     });
   }
 
@@ -54,6 +78,8 @@ export default class TrainingScene extends Component {
   render() {
     const { navigation } = this.props;
     const { training } = navigation.state.params;
+    const { amountOfShots, totalCountOfArrows } = this.state;
+    const average = totalCountOfArrows / amountOfShots;
     return (
       <View style={generalStyles.sceneContainer}>
         <NavBar
@@ -106,7 +132,9 @@ export default class TrainingScene extends Component {
           />
         </View>
         <Text>{this.state.total}</Text>
-
+        <Text>{this.state.amountOfShots}</Text>
+        <Text>{this.state.totalCountOfArrows}</Text>
+        <Text>Average: {average}</Text>
         <FlatList
           data={training.sets}
           keyExtractor={item => item.itemId}
