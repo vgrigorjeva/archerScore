@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, TouchableHighlight, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
@@ -8,6 +8,9 @@ import NavBar from '../items/Navbar';
 import PointButton from '../items/PointButton';
 import realmService from '../../services/realmService';
 import SetListItem from '../items/SetListItem';
+import SingleListView from '../items/views/SingleListView';
+import SingleStatsView from '../items/views/SingleStatsView';
+import SingleInfoView from '../items/views/SingleInfoView';
 
 let tempArray = [];
 
@@ -20,6 +23,7 @@ export default class TrainingScene extends Component {
       sets: [],
       amountOfShots: 0,
       totalCountOfArrows: 0,
+      index: 1,
     };
   }
 
@@ -58,27 +62,18 @@ export default class TrainingScene extends Component {
       set.points.forEach((point) => {
         this.setState({
           amountOfShots: this.state.amountOfShots += 1,
-          totalCountOfArrows: this.state.totalCountOfArrows += point.value
+          totalCountOfArrows: this.state.totalCountOfArrows += point.value,
         });
       });
     });
   }
 
-  renderItem = ({ item }) => {
-    const { navigation } = this.props;
-    return (
-      <SetListItem
-        navigation={navigation}
-        points={item.points}
-        set={item}
-      />
-    );
-  };
-
   render() {
     const { navigation } = this.props;
     const { training } = navigation.state.params;
-    const { amountOfShots, totalCountOfArrows } = this.state;
+    const {
+      amountOfShots, totalCountOfArrows, total, index,
+    } = this.state;
     const average = totalCountOfArrows / amountOfShots;
     return (
       <View style={generalStyles.sceneContainer}>
@@ -87,7 +82,37 @@ export default class TrainingScene extends Component {
           navigation={navigation}
           goBack
         />
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ backgroundColor: 'black', flex: 1 }}>
+          <Text style={{ color: 'white' }}>{total}</Text>
+          <Text style={{ color: 'white' }}>Total arrows: {amountOfShots}</Text>
+          <Text style={{ color: 'white' }}>Total point: {totalCountOfArrows}</Text>
+          <Text style={{ color: 'white' }}>Average: {average}</Text>
+          <View style={styles.tabBarHeader}>
+            <View style={styles.tabsRow}>
+              <TouchableHighlight onPress={() => this.setState({ index: 1 })}>
+                <View>
+                  <Text style={index === 1 ? styles.activeTab : styles.inactiveTab}>List</Text>
+                </View>
+              </TouchableHighlight>
+              <TouchableHighlight onPress={() => this.setState({ index: 2 })}>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={index === 2 ? styles.activeTab : styles.inactiveTab}>Stats</Text>
+                </View>
+              </TouchableHighlight>
+              <TouchableHighlight onPress={() => this.setState({ index: 3 })}>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={index === 3 ? styles.activeTab : styles.inactiveTab}>Info</Text>
+                </View>
+              </TouchableHighlight>
+            </View>
+          </View>
+          <ScrollView>
+            {index === 1 && <SingleListView training={training} />}
+            {index === 2 && <SingleStatsView />}
+            {index === 3 && <SingleInfoView />}
+          </ScrollView>
+        </View>
+        {/*         <View style={{ flexDirection: 'row' }}>
           <PointButton
             onPress={() => this.updateTotal(1)}
             number={1}
@@ -130,17 +155,8 @@ export default class TrainingScene extends Component {
             onPress={() => this.addSet()}
             number={10}
           />
-        </View>
-        <Text>{this.state.total}</Text>
-        <Text>{this.state.amountOfShots}</Text>
-        <Text>{this.state.totalCountOfArrows}</Text>
-        <Text>Average: {average}</Text>
-        <FlatList
-          data={training.sets}
-          keyExtractor={item => item.itemId}
-          renderItem={this.renderItem}
-          key={item => item.itemId}
-        />
+        </View */}
+
       </View>
     );
   }
