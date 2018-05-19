@@ -58,7 +58,7 @@ export default class CalendarScene extends Component {
         competitions = RealmService.getCompetitions();
         trainings.addListener(this.onChangeTrainings);
         competitions.addListener(this.onChangeCompetitions);
-        const trainingsMap = trainings.map(x => Object.assign({}, x)); 
+        const trainingsMap = trainings.map(x => Object.assign({}, x));
         const competitionsMap = competitions.map(x => Object.assign({}, x));
         const allShootings = trainingsMap.concat(competitionsMap);
         this.setState({
@@ -112,7 +112,10 @@ export default class CalendarScene extends Component {
   onDayPress(day) {
     this.setState({
       selected: day.dateString,
-    }, () => this.getShootingsForSelectedDay());
+    }, () => {
+      this.getDatesWithContent();
+      this.getShootingsForSelectedDay();
+    });
   }
 
   getShootingsForSelectedDay() {
@@ -137,7 +140,7 @@ export default class CalendarScene extends Component {
     const marked = {};
     Object.keys(datesWithContent).forEach((dateKey) => {
       if (moment(this.state.selected).format('YYYY-MM-DD') === dateKey) {
-        marked[dateKey] = { marked: true };
+        marked[dateKey] = { marked: true, selected: true };
       } else {
         marked[dateKey] = { marked: true };
       }
@@ -162,7 +165,9 @@ export default class CalendarScene extends Component {
   render() {
     const today = moment().format('YYYY-MM-DD');
     const { navigation } = this.props;
-    const { allShootings, shootingsForSelectedDay, marked, selected } = this.state;
+    const {
+ allShootings, shootingsForSelectedDay, marked, selected 
+} = this.state;
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
