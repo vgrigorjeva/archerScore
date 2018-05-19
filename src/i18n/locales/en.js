@@ -18,5 +18,11 @@ export default {
   competitions: 'COMPETITIONS',
   sets: 'sets',
   arrows: 'arrows',
+  totalArrows: 'Total arrows',
+  totalPoints: 'Total points',
+  average: 'Average',
+  list: 'List',
+  stats: 'Statistics',
+  info: 'Information',
 };
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
 import SetListItem from '../SetListItem';
@@ -20,7 +20,6 @@ export default class SingleListView extends Component {
       const { training } = this.props;
       return (
         <View>
-          <Text style={{ color: 'white' }}>list view</Text>
           <FlatList
             data={training.sets}
             keyExtractor={item => item.itemId}

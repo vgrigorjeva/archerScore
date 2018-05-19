@@ -18,5 +18,11 @@ export default {
   competitions: 'TÄVLINGAR',
   sets: 'omgångar',
   arrows: 'pilar',
+  totalArrows: 'Totalt pilar',
+  totalPoints: 'Totalt poäng',
+  average: 'Medelvärde',
+  list: 'Lista',
+  stats: 'Statistik',
+  info: 'Information',
 };
 

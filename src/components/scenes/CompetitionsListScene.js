@@ -12,6 +12,8 @@ import RealmService from '../../services/realmService';
 import ShootingListItem from '../items/ShootingListItem';
 import I18n from '../../i18n/i18n';
 
+let competitions = [];
+
 @inject('competitionStore')
 @observer
 export default class CompetitionsListScene extends Component {
@@ -24,12 +26,17 @@ export default class CompetitionsListScene extends Component {
   }
 
   componentWillMount() {
-    const competitions = RealmService.getCompetitions();
+    competitions = RealmService.getCompetitions();
     competitions.addListener(this.onChange);
     this.setState({
       competitions,
     });
   }
+
+  componentWillUnmount() {
+    competitions.removeAllListeners();
+  }
+
 
   onChange() {
     this.setState({

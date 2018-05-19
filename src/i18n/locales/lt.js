@@ -18,4 +18,10 @@ export default {
   competitions: 'VARŽYBOS',
   sets: 'serijos',
   arrows: 'strėlės',
+  totalArrows: 'Iš viso strėlių',
+  totalPoints: 'Iš viso taškų',
+  average: 'Vidurkis',
+  list: 'Sąrašas',
+  stats: 'Statistika',
+  info: 'Informacija',
 };

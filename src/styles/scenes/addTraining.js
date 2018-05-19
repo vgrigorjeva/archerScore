@@ -9,6 +9,8 @@ export default StyleSheet.create({
   },
   activeTab: {
     color: colors.yellow,
+    fontSize: 24,
+    fontFamily: fonts.main,
   },
   container: {
     margin: 20,
@@ -18,10 +20,14 @@ export default StyleSheet.create({
   },
   inactiveTab: {
     color: colors.white,
+    fontSize: 18,
+    fontFamily: fonts.main,
   },
   tabBarHeader: {
     borderBottomWidth: 1,
     borderBottomColor: 'grey',
+    height: 40,
+    justifyContent: 'center',
   },
   tabsRow: {
     marginRight: 20,
