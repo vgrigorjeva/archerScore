@@ -24,4 +24,5 @@ export default {
   list: 'Sąrašas',
   stats: 'Statistika',
   info: 'Informacija',
+  newSet: 'NAUJA SERIJA',
 };

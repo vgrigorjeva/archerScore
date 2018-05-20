@@ -7,6 +7,7 @@ import {
   bowStore,
   competitionStore,
   trainingStore,
+  setStore,
 } from '../stores/Stores';
 
 function StoreProvider() {
@@ -16,6 +17,7 @@ function StoreProvider() {
       bowStore={bowStore}
       competitionStore={competitionStore}
       trainingStore={trainingStore}
+      setStore={setStore}
     >
       <App />
     </Provider>

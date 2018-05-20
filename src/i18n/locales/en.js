@@ -24,5 +24,6 @@ export default {
   list: 'List',
   stats: 'Statistics',
   info: 'Information',
+  newSet: 'NEW SET',
 };
 

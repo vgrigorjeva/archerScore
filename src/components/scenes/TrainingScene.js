@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react/native';
 
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/listScene';
@@ -11,10 +12,14 @@ import SingleListView from '../items/views/SingleListView';
 import SingleStatsView from '../items/views/SingleStatsView';
 import SingleInfoView from '../items/views/SingleInfoView';
 import I18n from '../../i18n/i18n';
+import AddButton from '../items/buttons/AddButton';
+import NewSetModal from '../modals/NewSetModal';
 
 let tempArray = [];
 let pointsArray = [];
 
+@inject('setStore')
+@observer
 export default class TrainingScene extends Component {
   constructor(props) {
     super(props);
@@ -74,7 +79,8 @@ export default class TrainingScene extends Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, setStore } = this.props;
+    const { showAddSetPopup } = setStore;
     const { training } = navigation.state.params;
     const {
       amountOfShots, totalCountOfArrows, total, index, pointsArray,
@@ -116,52 +122,16 @@ export default class TrainingScene extends Component {
             {index === 2 && <SingleStatsView pointsArray={pointsArray} />}
             {index === 3 && <SingleInfoView />}
           </ScrollView>
-        </View>
-        <View style={{ flexDirection: 'row' }}>
-          <PointButton
-            onPress={() => this.updateTotal(1)}
-            number={1}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(2)}
-            number={2}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(3)}
-            number={3}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(4)}
-            number={4}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(5)}
-            number={5}
+          <AddButton
+            onPress={() => { setStore.setShowAddSetPopup(true); }}
           />
         </View>
-        <View style={{ flexDirection: 'row' }}>
-          <PointButton
-            onPress={() => this.updateTotal(6)}
-            number={6}
+        {
+          showAddSetPopup && <NewSetModal
+            navigation={navigation}
+            togglePopup={() => { setStore.setShowAddSetPopup(false); }}
           />
-          <PointButton
-            onPress={() => this.updateTotal(7)}
-            number={7}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(8)}
-            number={8}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(9)}
-            number={9}
-          />
-          <PointButton
-            onPress={() => this.addSet()}
-            number={10}
-          />
-        </View>
-
+        }
       </View>
     );
   }

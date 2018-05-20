@@ -24,5 +24,6 @@ export default {
   list: 'Lista',
   stats: 'Statistik',
   info: 'Information',
+  newSet: 'NY SET',
 };
 

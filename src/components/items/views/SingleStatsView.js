@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { VictoryPie } from 'victory-native';
 
 import { tenTarget } from '../../../shared';
+import { colors } from '../../../styles/general';
 
 var totalArray = [];
 var arrayToRender = [];
@@ -46,7 +47,7 @@ export default class SingleStatsView extends Component {
           style={{
             labels: {
               fontSize: 20,
-              fill: '#ff00ff',
+              fill: colors.white,
             },
           }}
         />
