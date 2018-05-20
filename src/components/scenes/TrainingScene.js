@@ -86,11 +86,10 @@ export default class TrainingScene extends Component {
           navigation={navigation}
           goBack
         />
-        <View style={{ backgroundColor: 'black', flex: 1 }}>
-          <Text style={{ color: 'white' }}>{total}</Text>
-          <Text style={{ color: 'white' }}>{I18n.t('totalArrows')}: {amountOfShots}</Text>
-          <Text style={{ color: 'white' }}>{I18n.t('totalPoints')}: {totalCountOfArrows}</Text>
-          <Text style={{ color: 'white' }}>{I18n.t('average')}: {average}</Text>
+        <View style={styles.viewsContainer}>
+          <Text style={styles.headerText}>{I18n.t('totalArrows')}: {amountOfShots}</Text>
+          <Text style={styles.headerText}>{I18n.t('totalPoints')}: {totalCountOfArrows}</Text>
+          <Text style={styles.headerText}>{I18n.t('average')}: {average}</Text>
           <View style={styles.tabBarHeader}>
             <View style={styles.tabsRow}>
               <TouchableHighlight onPress={() => this.setState({ index: 1 })}>

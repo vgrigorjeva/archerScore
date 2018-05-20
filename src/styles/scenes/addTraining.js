@@ -25,7 +25,7 @@ export default StyleSheet.create({
   },
   tabBarHeader: {
     borderBottomWidth: 1,
-    borderBottomColor: 'grey',
+    borderBottomColor: colors.grey,
     height: 40,
     justifyContent: 'center',
   },
@@ -34,5 +34,13 @@ export default StyleSheet.create({
     marginLeft: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  headerText: {
+    color: colors.white,
+    fontFamily: fonts.main,
+  },
+  viewsContainer: {
+    backgroundColor: colors.black,
+    flex: 1,
   },
 });

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { fonts } from '../general';
 
 export default StyleSheet.create({
   menuButton: {
@@ -22,8 +23,10 @@ export default StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 20,
-    backgroundColor: 'red',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  pointButtonText: {
+    fontFamily: fonts.main,
   },
 });
