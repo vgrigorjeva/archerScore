@@ -36,14 +36,14 @@ export default class ShootingListItem extends Component {
             }))}
             onLongPress={longPress}
           >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <View style={{ flexDirection: 'column' }}>
+            <View style={styles.shootingListItemInfo}>
+              <View style={styles.infoColumn}>
                 <Text style={styles.titleText}>
                   {item.name}
                 </Text>
                 <Text style={styles.dateText}>{date}</Text>
               </View>
-              <View style={{ flexDirection: 'column' }}>
+              <View style={styles.infoColumn}>
                 <Text style={styles.dateText}>{setsnumber} {I18n.t('sets')} x {arrowsPerSet} {I18n.t('arrows')}</Text>
               </View>
             </View>

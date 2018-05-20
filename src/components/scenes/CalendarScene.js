@@ -5,7 +5,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 
 import RealmService from '../../services/realmService';
-import generalStyles from '../../styles/general';
+import generalStyles, { colors, fonts } from '../../styles/general';
 import styles from '../../styles/scenes/calendar';
 import Navbar from '../items/Navbar';
 import ShootingListItem from '../items/ShootingListItem';
@@ -15,7 +15,7 @@ import localesRu from '../../i18n/locales/calenderLocalesRu';
 import localesEn from '../../i18n/locales/calenderLocalesEn';
 import localesLt from '../../i18n/locales/calenderLocalesLt';
 
-const workout1 = { key: 'workout1', color: '#C63085', selectedDotColor: '#252525' };
+const workout1 = { key: 'workout1', color: colors.workoutMarked, selectedDotColor: '#252525' };
 let trainings = [];
 let competitions = [];
 
@@ -188,32 +188,32 @@ export default class CalendarScene extends Component {
               this.state.marked,
             )}
             theme={{
-              dayTextColor: '#000000',
-              todayTextColor: '#ff0000',
-              selectedDayTextColor: '#000000',
-              monthTextColor: '#000000',
-              selectedDayBackgroundColor: '#ffff00',
-              arrowColor: '#000000',
+              dayTextColor: colors.black,
+              todayTextColor: colors.red,
+              selectedDayTextColor: colors.black,
+              monthTextColor: colors.main,
+              selectedDayBackgroundColor: colors.yellow,
+              arrowColor: colors.black,
               'stylesheet.day.basic': {
                 visibleDot: {
                   opacity: 1,
-                  backgroundColor: '#000000',
+                  backgroundColor: colors.black,
                 },
                 selectedDot: {
-                  backgroundColor: '#000000',
+                  backgroundColor: colors.black,
                 },
                 text: {
-                  fontFamily: 'ArchitectsDaughter-Regular',
+                  fontFamily: fonts.main,
                 },
               },
               'stylesheet.calendar.header': {
                 monthText: {
-                  fontFamily: 'ArchitectsDaughter-Regular',
-                  color: '#000000',
+                  fontFamily: fonts.main,
+                  color: colors.black,
                 },
                 dayHeader: {
-                  fontFamily: 'ArchitectsDaughter-Regular',
-                  color: '#000000',
+                  fontFamily: fonts.main,
+                  color: colors.black,
                 },
               },
             }}

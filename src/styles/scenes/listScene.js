@@ -43,4 +43,7 @@ export default StyleSheet.create({
     backgroundColor: colors.black,
     flex: 1,
   },
+  viewMargin: {
+    marginTop: 5,
+  },
 });

@@ -3,7 +3,7 @@ import { View, Text, TouchableHighlight, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
-import styles from '../../styles/scenes/addTraining';
+import styles from '../../styles/scenes/listScene';
 import NavBar from '../items/Navbar';
 import PointButton from '../items/PointButton';
 import realmService from '../../services/realmService';

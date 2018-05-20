@@ -12,6 +12,7 @@ export const colors = {
   listItemBackground: '#6d6d6d',
   grey: '#727272',
   granitGray: '#2f353b',
+  workoutMarked: '#C63085',
 };
 
 export const fonts = {

@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react/native';
 import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
-import styles from '../../styles/scenes/addCompetition';
+import styles from '../../styles/scenes/listScene';
 import AddButton from '../items/buttons/AddButton';
 import NewCompetitionModal from '../modals/NewCompetitionModal';
 import NavBar from '../items/Navbar';
@@ -68,7 +68,7 @@ export default class CompetitionsListScene extends Component {
           navigation={navigation}
           goBack={false}
         />
-        <View style={{ marginTop: 5 }}>
+        <View style={styles.viewMargin}>
           <FlatList
             data={competitions}
             keyExtractor={item => item.itemId}

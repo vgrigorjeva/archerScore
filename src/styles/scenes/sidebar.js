@@ -1,11 +1,12 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { colors } from '../general';
 
 const { width } = Dimensions.get('window');
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: colors.black,
   },
   imageContainer: {
     justifyContent: 'center',
@@ -16,7 +17,7 @@ export default StyleSheet.create({
     width: '50%',
   },
   menuHeaderText: {
-    color: '#ffffff',
+    color: colors.white,
     fontFamily: 'ArchitectsDaughter-Regular',
   },
   menuItem: {

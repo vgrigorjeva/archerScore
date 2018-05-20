@@ -28,7 +28,7 @@ export default class SetListItem extends Component {
           <TouchableHighlight
             onLongPress={() => realmService.deleteSet({ setId })}
           >
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+            <View style={styles.buttonsRow}>
               {points.map(point => (
                 <PointButton
                   number={point.value}
