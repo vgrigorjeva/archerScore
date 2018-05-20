@@ -3,86 +3,49 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { VictoryPie } from 'victory-native';
 
+import { tenTarget } from '../../../shared';
+
+var totalArray = [];
+var arrayToRender = [];
+
 export default class SingleStatsView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      points: this.props.pointsArray,
-      ones: 0,
-      twos: 0,
-      threes: 0,
-      fours: 0,
-      fives: 0,
-      sixes: 0,
-      sevens: 0,
-      eights: 0,
-      nines: 0,
-      tens: 0,
-    };
+  componentWillMount() {
+    totalArray = [];
+    arrayToRender = [];
+    tenTarget.forEach((e) => {
+      totalArray.push({ key: e.key, value: 0 });
+    });
+
+    const { pointsArray } = this.props;
+    pointsArray.forEach((point) => {
+      const tenTargetElement = tenTarget.find(e => e.value === point);
+      const foundIndex = totalArray.findIndex(x => x.key === tenTargetElement.key);
+      totalArray[foundIndex].value += 1;
+    });
+    this.renderStatsGraph();
   }
 
-  componentWillMount() {
-    const { points } = this.state;
-    points.forEach((point) => {
-      if (point === 1) {
-        this.setState({ ones: this.state.ones += 1 });
-      }
-      if (point === 2) {
-        this.setState({ twos: this.state.twos += 1 });
-      }
-      if (point === 3) {
-        this.setState({ threes: this.state.threes += 1 });
-      }
-      if (point === 4) {
-        this.setState({ fours: this.state.fours += 1 });
-      }
-      if (point === 5) {
-        this.setState({ fives: this.state.fives += 1 });
-      }
-      if (point === 6) {
-        this.setState({ sixes: this.state.sixes += 1 });
-      }
-      if (point === 7) {
-        this.setState({ sevens: this.state.sevens += 1 });
-      }
-      if (point === 8) {
-        this.setState({ eights: this.state.eights += 1 });
-      }
-      if (point === 9) {
-        this.setState({ nines: this.state.nines += 1 });
-      }
-      if (point === 10) {
-        this.setState({ tens: this.state.tens += 1 });
+  renderStatsGraph() {
+    tenTarget.forEach((element) => {
+      const foundIndex = totalArray.findIndex(x => x.key === element.key);
+      if (totalArray[foundIndex].value !== 0) {
+        arrayToRender.push({ x: element.value, y: totalArray[foundIndex].value });
       }
     });
   }
 
   render() {
-    const {
-      ones, twos, threes, fours, fives, sixes, sevens, eights, nines, tens,
-    } = this.state;
     return (
       <View>
         <VictoryPie
-          data={[
-      { x: '1', y: ones },
-      { x: '2', y: twos },
-      { x: '3', y: threes },
-      { x: '4', y: fours },
-      { x: '5', y: fives },
-      { x: '6', y: sixes },
-      { x: '7', y: sevens },
-      { x: '8', y: eights },
-      { x: '9', y: nines },
-      { x: '10', y: tens },
-    ]}
+          data={arrayToRender}
           cornerRadius={10}
           padAngle={1}
+          labelRadius={160}
           labels={d => `${d.x}: ${d.y}`}
-          colorScale={["white", "black", "blue", "red", "yellow" ]}
           style={{
             labels: {
-              fontSize: 25,
+              fontSize: 20,
               fill: '#ff00ff',
             },
           }}

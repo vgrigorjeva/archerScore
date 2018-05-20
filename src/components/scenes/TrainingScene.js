@@ -60,6 +60,7 @@ export default class TrainingScene extends Component {
   count() {
     const { navigation } = this.props;
     const { training: { sets } } = navigation.state.params;
+    pointsArray = [];
     sets.forEach((set) => {
       set.points.forEach((point) => {
         pointsArray.push(point.value);
