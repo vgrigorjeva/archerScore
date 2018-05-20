@@ -79,6 +79,7 @@ export default class TrainingScene extends Component {
       amountOfShots, totalCountOfArrows, total, index, pointsArray,
     } = this.state;
     const average = totalCountOfArrows / amountOfShots;
+    const roundedAverage = Math.round(average * 100) / 100;
     return (
       <View style={generalStyles.sceneContainer}>
         <NavBar
@@ -89,7 +90,7 @@ export default class TrainingScene extends Component {
         <View style={styles.viewsContainer}>
           <Text style={styles.headerText}>{I18n.t('totalArrows')}: {amountOfShots}</Text>
           <Text style={styles.headerText}>{I18n.t('totalPoints')}: {totalCountOfArrows}</Text>
-          <Text style={styles.headerText}>{I18n.t('average')}: {average}</Text>
+          <Text style={styles.headerText}>{I18n.t('average')}: {roundedAverage}</Text>
           <View style={styles.tabBarHeader}>
             <View style={styles.tabsRow}>
               <TouchableHighlight onPress={() => this.setState({ index: 1 })}>

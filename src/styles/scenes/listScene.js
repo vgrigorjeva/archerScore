@@ -38,6 +38,7 @@ export default StyleSheet.create({
   headerText: {
     color: colors.white,
     fontFamily: fonts.main,
+    fontSize: 16,
   },
   viewsContainer: {
     backgroundColor: colors.black,
