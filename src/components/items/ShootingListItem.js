@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from '../../styles/items/listItem';
 import I18n from '../../i18n/i18n';
@@ -45,6 +46,9 @@ export default class ShootingListItem extends Component {
               </View>
               <View style={styles.infoColumn}>
                 <Text style={styles.dateText}>{setsnumber} {I18n.t('sets')} x {arrowsPerSet} {I18n.t('arrows')}</Text>
+                <View style={{ alignSelf: 'flex-end' }}>
+                  {isTraining ? <Icon name="user" size={20} /> : <Icon name="users" size={20} />}
+                </View>
               </View>
             </View>
           </TouchableHighlight>
