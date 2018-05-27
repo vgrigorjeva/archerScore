@@ -10,7 +10,7 @@ import NextButton from '../items/buttons/NextButton';
 import I18n from '../../i18n/i18n';
 import { tenTarget } from '../../shared';
 
-const tempPointsArray = [];
+let tempPointsArray = [];
 
 export default class SetScene extends Component {
   constructor(props) {
@@ -24,6 +24,7 @@ export default class SetScene extends Component {
   restoreSet() {
     const { navigation } = this.props;
     const { addSet } = navigation.state.params;
+    tempPointsArray = [];
     addSet();
     this.setState({
       setTotal: 0,

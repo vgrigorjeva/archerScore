@@ -48,4 +48,7 @@ export default StyleSheet.create({
   viewMargin: {
     marginTop: 5,
   },
+  pointsHeader: {
+    backgroundColor: colors.black,
+  }
 });

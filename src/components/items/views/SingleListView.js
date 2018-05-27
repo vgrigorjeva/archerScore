@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 
 import SetListItem from '../SetListItem';
 import realmService from '../../../services/realmService';
+import styles from '../../../styles/scenes/views';
 
 export default class SingleListView extends Component {
     renderItem = ({ item }) => {
-      const { navigation } = this.props;
       const setId = item.itemId;
       return (
         <SetListItem
-          navigation={navigation}
           points={item.points}
           set={item}
           onLongPress={() => realmService.deleteSet({ setId })}
@@ -22,7 +21,7 @@ export default class SingleListView extends Component {
     render() {
       const { training } = this.props;
       return (
-        <View>
+        <View style={styles.listView}>
           <FlatList
             data={training.sets}
             keyExtractor={item => item.itemId}

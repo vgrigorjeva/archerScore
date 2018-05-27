@@ -5,7 +5,6 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-import realmService from '../../services/realmService';
 import styles from '../../styles/items/listItem';
 import PointButton from './PointButton';
 
@@ -47,5 +46,6 @@ export default class SetListItem extends Component {
 SetListItem.propTypes = {
   points: PropTypes.object.isRequired,
   set: PropTypes.object.isRequired,
+  onLongPress: PropTypes.func.isRequired,
 };
 

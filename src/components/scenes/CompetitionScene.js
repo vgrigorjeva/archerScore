@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
-import { inject, observer } from 'mobx-react/native';
 
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/listScene';
@@ -28,6 +27,8 @@ export default class CompetitionScene extends Component {
       index: 1,
       pointsArray: [],
     };
+    this.addSet = this.addSet.bind(this);
+    this.updateTotal = this.updateTotal.bind(this);
   }
 
   componentWillMount() {
@@ -78,7 +79,7 @@ export default class CompetitionScene extends Component {
     const { navigation } = this.props;
     const { competition } = navigation.state.params;
     const {
-      amountOfShots, totalCountOfArrows, total, index, pointsArray
+      amountOfShots, totalCountOfArrows, total, index, pointsArray,
     } = this.state;
     const average = totalCountOfArrows / amountOfShots;
     const roundedAverage = Math.round(average * 100) / 100;
@@ -90,9 +91,11 @@ export default class CompetitionScene extends Component {
           goBack
         />
         <View style={styles.viewsContainer}>
-          <Text style={styles.headerText}>{I18n.t('totalArrows')}: {amountOfShots}</Text>
-          <Text style={styles.headerText}>{I18n.t('totalPoints')}: {totalCountOfArrows}</Text>
-          <Text style={styles.headerText}>{I18n.t('average')}: {roundedAverage}</Text>
+          <View style={styles.pointsHeader}>
+            <Text style={styles.headerText}>{I18n.t('totalArrows')}: {amountOfShots}</Text>
+            <Text style={styles.headerText}>{I18n.t('totalPoints')}: {totalCountOfArrows}</Text>
+            <Text style={styles.headerText}>{I18n.t('average')}: {roundedAverage}</Text>
+          </View>
           <View style={styles.tabBarHeader}>
             <View style={styles.tabsRow}>
               <TouchableHighlight onPress={() => this.setState({ index: 1 })}>
@@ -117,6 +120,15 @@ export default class CompetitionScene extends Component {
             {index === 2 && <SingleStatsView pointsArray={pointsArray} />}
             {index === 3 && <SingleInfoView />}
           </ScrollView>
+          <AddButton
+            onPress={() => {
+ navigation.navigate('Set', {
+              addSet: this.addSet,
+              updateTotal: this.updateTotal,
+            });
+}
+          }
+          />
         </View>
       </View>
     );

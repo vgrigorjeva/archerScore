@@ -6,8 +6,8 @@ import { VictoryPie } from 'victory-native';
 import { tenTarget } from '../../../shared';
 import { colors } from '../../../styles/general';
 
-var totalArray = [];
-var arrayToRender = [];
+let totalArray = [];
+let arrayToRender = [];
 
 export default class SingleStatsView extends Component {
   componentWillMount() {

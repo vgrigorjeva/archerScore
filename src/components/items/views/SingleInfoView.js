@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const SingleInfoView = () => (
   <View>
-    <Text style={{ color: 'white' }}>Info view</Text>
+    <Text>Info view</Text>
   </View>
 );
 

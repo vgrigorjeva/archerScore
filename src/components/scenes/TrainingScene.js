@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
-import { inject, observer } from 'mobx-react/native';
 
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/listScene';
@@ -92,10 +91,10 @@ export default class TrainingScene extends Component {
           goBack
         />
         <View style={styles.viewsContainer}>
-        <View style={{ backgroundColor: 'black' }}>
-          <Text style={styles.headerText}>{I18n.t('totalArrows')}: {amountOfShots}</Text>
-          <Text style={styles.headerText}>{I18n.t('totalPoints')}: {totalCountOfArrows}</Text>
-          <Text style={styles.headerText}>{I18n.t('average')}: {roundedAverage}</Text>
+          <View style={styles.pointsHeader}>
+            <Text style={styles.headerText}>{I18n.t('totalArrows')}: {amountOfShots}</Text>
+            <Text style={styles.headerText}>{I18n.t('totalPoints')}: {totalCountOfArrows}</Text>
+            <Text style={styles.headerText}>{I18n.t('average')}: {roundedAverage}</Text>
           </View>
           <View style={styles.tabBarHeader}>
             <View style={styles.tabsRow}>
