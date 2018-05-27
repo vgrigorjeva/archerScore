@@ -25,5 +25,7 @@ export default {
   stats: 'Statistik',
   info: 'Information',
   newSet: 'NY SET',
+  addSet: 'LÄGG TILL SET',
+  save: 'SPARA',
 };
 

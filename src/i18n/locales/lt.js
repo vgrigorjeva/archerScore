@@ -25,4 +25,6 @@ export default {
   stats: 'Statistika',
   info: 'Informacija',
   newSet: 'NAUJA SERIJA',
+  addSet: 'NAUJA SERIJA',
+  save: 'IŠSAUGOTI',
 };
