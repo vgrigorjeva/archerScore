@@ -7,7 +7,7 @@ import styles from '../../styles/items/buttons';
 
 export default class PointButton extends Component {
   render() {
-    const { onPress, number } = this.props;
+    const { onPress, number, large, disabled } = this.props;
     var color = colors.black;
     var textColor = colors.black;
     if (number === 1 || number === 2) {
@@ -26,15 +26,23 @@ export default class PointButton extends Component {
       <TouchableHighlight
         onPress={onPress}
         underlayColor={colors.underlayColor}
-        style={[styles.pointButton, { backgroundColor: color }]}
+        style={[large ? styles.pointButtonLarge : styles.pointButtonSmall, { backgroundColor: color }]}
+        disabled={disabled}
       >
-        <Text style={[styles.pointButtonText, { color: textColor }]}>{number}</Text>
+        <Text style={[large ? styles.pointButtonTextLarge : styles.pointButtonTextSmall, { color: textColor }]}>{number}</Text>
       </TouchableHighlight>
     );
   }
 }
 
+PointButton.defaultProps = {
+  large: false,
+  disabled: false,
+};
+
 PointButton.propTypes = {
-  onPress: PropTypes.func.isRequired,
+  onPress: PropTypes.func,
   number: PropTypes.number.isRequired,
+  large: PropTypes.bool,
+  disabled: PropTypes.bool,
 };

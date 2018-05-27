@@ -13,6 +13,7 @@ export const colors = {
   grey: '#727272',
   granitGray: '#2f353b',
   workoutMarked: '#C63085',
+  save: '#1ac974',
 };
 
 export const fonts = {

@@ -6,20 +6,16 @@ import { inject, observer } from 'mobx-react/native';
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/listScene';
 import NavBar from '../items/Navbar';
-import PointButton from '../items/PointButton';
 import realmService from '../../services/realmService';
 import SingleListView from '../items/views/SingleListView';
 import SingleStatsView from '../items/views/SingleStatsView';
 import SingleInfoView from '../items/views/SingleInfoView';
 import I18n from '../../i18n/i18n';
 import AddButton from '../items/buttons/AddButton';
-import NewSetModal from '../modals/NewSetModal';
 
 let tempArray = [];
 let pointsArray = [];
 
-@inject('setStore')
-@observer
 export default class TrainingScene extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +28,8 @@ export default class TrainingScene extends Component {
       index: 1,
       pointsArray: [],
     };
+    this.addSet = this.addSet.bind(this);
+    this.updateTotal = this.updateTotal.bind(this);
   }
 
   componentWillMount() {
@@ -79,8 +77,7 @@ export default class TrainingScene extends Component {
   }
 
   render() {
-    const { navigation, setStore } = this.props;
-    const { showAddSetPopup } = setStore;
+    const { navigation } = this.props;
     const { training } = navigation.state.params;
     const {
       amountOfShots, totalCountOfArrows, total, index, pointsArray,
@@ -95,9 +92,11 @@ export default class TrainingScene extends Component {
           goBack
         />
         <View style={styles.viewsContainer}>
+        <View style={{ backgroundColor: 'black' }}>
           <Text style={styles.headerText}>{I18n.t('totalArrows')}: {amountOfShots}</Text>
           <Text style={styles.headerText}>{I18n.t('totalPoints')}: {totalCountOfArrows}</Text>
           <Text style={styles.headerText}>{I18n.t('average')}: {roundedAverage}</Text>
+          </View>
           <View style={styles.tabBarHeader}>
             <View style={styles.tabsRow}>
               <TouchableHighlight onPress={() => this.setState({ index: 1 })}>
@@ -123,15 +122,15 @@ export default class TrainingScene extends Component {
             {index === 3 && <SingleInfoView />}
           </ScrollView>
           <AddButton
-            onPress={() => { setStore.setShowAddSetPopup(true); }}
+            onPress={() => {
+ navigation.navigate('Set', {
+              addSet: this.addSet,
+              updateTotal: this.updateTotal,
+            });
+}
+          }
           />
         </View>
-        {
-          showAddSetPopup && <NewSetModal
-            navigation={navigation}
-            togglePopup={() => { setStore.setShowAddSetPopup(false); }}
-          />
-        }
       </View>
     );
   }

@@ -47,7 +47,7 @@ export default class SingleStatsView extends Component {
           style={{
             labels: {
               fontSize: 20,
-              fill: colors.white,
+              fill: colors.black,
             },
           }}
         />

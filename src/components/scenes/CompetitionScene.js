@@ -6,20 +6,16 @@ import { inject, observer } from 'mobx-react/native';
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/listScene';
 import NavBar from '../items/Navbar';
-import PointButton from '../items/PointButton';
 import realmService from '../../services/realmService';
 import SingleListView from '../items/views/SingleListView';
 import SingleStatsView from '../items/views/SingleStatsView';
 import SingleInfoView from '../items/views/SingleInfoView';
 import I18n from '../../i18n/i18n';
 import AddButton from '../items/buttons/AddButton';
-import NewSetModal from '../modals/NewSetModal';
 
 let tempArray = [];
 let pointsArray = [];
 
-@inject('setStore')
-@observer
 export default class CompetitionScene extends Component {
   constructor(props) {
     super(props);
@@ -79,8 +75,7 @@ export default class CompetitionScene extends Component {
   }
 
   render() {
-    const { navigation, setStore } = this.props;
-    const { showAddSetPopup } = setStore;
+    const { navigation } = this.props;
     const { competition } = navigation.state.params;
     const {
       amountOfShots, totalCountOfArrows, total, index, pointsArray
@@ -122,16 +117,7 @@ export default class CompetitionScene extends Component {
             {index === 2 && <SingleStatsView pointsArray={pointsArray} />}
             {index === 3 && <SingleInfoView />}
           </ScrollView>
-          <AddButton
-            onPress={() => { setStore.setShowAddSetPopup(true); }}
-          />
         </View>
-        {
-          showAddSetPopup && <NewSetModal
-            navigation={navigation}
-            togglePopup={() => { setStore.setShowAddSetPopup(false); }}
-          />
-        }
       </View>
     );
   }

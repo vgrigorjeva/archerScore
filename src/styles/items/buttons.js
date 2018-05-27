@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { fonts } from '../general';
+import { fonts, colors } from '../general';
 
 export default StyleSheet.create({
   menuButton: {
@@ -19,14 +19,40 @@ export default StyleSheet.create({
     position: 'absolute',
     left: 10,
   },
-  pointButton: {
+  pointButtonSmall: {
     height: 40,
     width: 40,
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  pointButtonText: {
+  pointButtonLarge: {
+    height: 80,
+    width: 80,
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  pointButtonTextSmall: {
     fontFamily: fonts.main,
+    fontSize: 16,
+  },
+  pointButtonTextLarge: {
+    fontFamily: fonts.main,
+    fontSize: 24,
+  },
+  nextButton: {
+    backgroundColor: colors.save,
+    height: 50,
+    marginLeft: 20,
+    marginRight: 20,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  nextButtonText: {
+    fontFamily: fonts.main,
+    fontSize: 20,
   },
 });

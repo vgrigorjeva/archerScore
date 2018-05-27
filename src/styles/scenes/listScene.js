@@ -28,12 +28,14 @@ export default StyleSheet.create({
     borderBottomColor: colors.grey,
     height: 40,
     justifyContent: 'center',
+    backgroundColor: colors.black,
   },
   tabsRow: {
     marginRight: 20,
     marginLeft: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
+
   },
   headerText: {
     color: colors.white,
@@ -41,7 +43,6 @@ export default StyleSheet.create({
     fontSize: 16,
   },
   viewsContainer: {
-    backgroundColor: colors.black,
     flex: 1,
   },
   viewMargin: {

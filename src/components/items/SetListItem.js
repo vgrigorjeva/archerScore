@@ -20,20 +20,20 @@ export default class SetListItem extends Component {
   }
 
   render() {
+    const { onLongPress } = this.props;
     const { points, set } = this.state;
     const setId = set.itemId;
     return (
       <View style={styles.itemContainer}>
         <View>
           <TouchableHighlight
-            onLongPress={() => realmService.deleteSet({ setId })}
+            onLongPress={onLongPress}
           >
             <View style={styles.buttonsRow}>
               {points.map(point => (
                 <PointButton
                   number={point.value}
                   key={point}
-                  onPress={() => console.warn(point.value)}
                 />
             ))}
             </View>
