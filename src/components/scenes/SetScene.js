@@ -18,6 +18,7 @@ export default class SetScene extends Component {
     this.state = {
       setTotal: 0,
       setPoints: [],
+      disabledInput: false,
     };
   }
 
@@ -29,8 +30,19 @@ export default class SetScene extends Component {
     this.setState({
       setTotal: 0,
       setPoints: [],
+      disabledInput: false,
     });
   }
+
+  checkAmountOfPoints() {
+    const { setPoints } = this.state;
+    const { navigation } = this.props;
+    const { setLength } = navigation.state.params;
+    if (setPoints.length === setLength) {
+      this.setState({ disabledInput: true });
+    }
+  }
+  
 
   renderSetButtons(point) {
     const { navigation } = this.props;
@@ -41,11 +53,12 @@ export default class SetScene extends Component {
       setTotal: this.state.setTotal += point,
       setPoints: tempPointsArray,
     });
+    this.checkAmountOfPoints();
   }
 
   render() {
     const { navigation } = this.props;
-    const { setTotal, setPoints } = this.state;
+    const { setTotal, setPoints, disabledInput } = this.state;
     return (
       <View style={generalStyles.sceneContainer}>
         <Navbar
@@ -63,6 +76,7 @@ export default class SetScene extends Component {
                 number={item.value}
                 large
                 key={item.value}
+                disabled={disabledInput}
               />
           ))}
           </View>
