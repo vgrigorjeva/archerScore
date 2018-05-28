@@ -27,5 +27,9 @@ export default {
   newSet: 'NEW SET',
   addSet: 'ADD SET',
   save: 'SAVE',
+  chooseDistance: 'Distance',
+  chooseArrowsPerSet: 'Arrows per set',
+  chooseEnvironment: 'Environment',
+  targetType: 'Target type',
 };
 

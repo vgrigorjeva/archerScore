@@ -27,4 +27,6 @@ export default {
   newSet: 'NAUJA SERIJA',
   addSet: 'NAUJA SERIJA',
   save: 'IŠSAUGOTI',
+  chooseDistance: 'Atstumas',
+  chooseArrowsPerSet: 'Strėlės per seriją',
 };

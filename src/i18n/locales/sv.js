@@ -27,5 +27,9 @@ export default {
   newSet: 'NY SET',
   addSet: 'LÄGG TILL SET',
   save: 'SPARA',
+  chooseDistance: 'Avtånd',
+  chooseArrowsPerSet: 'Pilar per set',
+  chooseEnvironment: 'Omgivning',
+  targetType: 'Tapet',
 };
 
