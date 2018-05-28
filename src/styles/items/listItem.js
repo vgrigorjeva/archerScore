@@ -24,4 +24,15 @@ export default StyleSheet.create({
     color: colors.grey,
     fontFamily: fonts.main,
   },
+  buttonsRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  },
+  shootingListItemInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  infoColumn: {
+    flexDirection: 'column',
+  },
 });

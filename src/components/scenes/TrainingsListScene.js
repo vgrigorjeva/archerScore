@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react/native';
 import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
-import styles from '../../styles/scenes/addTraining';
+import styles from '../../styles/scenes/listScene';
 import AddButton from '../items/buttons/AddButton';
 import NewTrainingModal from '../modals/NewTrainingModal';
 import RealmService from '../../services/realmService';
@@ -73,7 +73,7 @@ export default class TrainingsListScene extends Component {
           navigation={navigation}
           goBack={false}
         />
-        <View style={{ marginTop: 5 }}>
+        <View style={styles.viewMargin}>
           <FlatList
             data={trainings}
             keyExtractor={item => item.itemId}

@@ -18,5 +18,18 @@ export default {
   competitions: 'COMPETITIONS',
   sets: 'sets',
   arrows: 'arrows',
+  totalArrows: 'Total arrows',
+  totalPoints: 'Total points',
+  average: 'Average',
+  list: 'List',
+  stats: 'Statistics',
+  info: 'Information',
+  newSet: 'NEW SET',
+  addSet: 'ADD SET',
+  save: 'SAVE',
+  chooseDistance: 'Distance',
+  chooseArrowsPerSet: 'Arrows per set',
+  chooseEnvironment: 'Environment',
+  targetType: 'Target type',
 };
 

@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, TouchableHighlight, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
-import styles from '../../styles/scenes/addTraining';
+import styles from '../../styles/scenes/listScene';
 import NavBar from '../items/Navbar';
-import PointButton from '../items/PointButton';
 import realmService from '../../services/realmService';
-import SetListItem from '../items/SetListItem';
+import SingleListView from '../items/views/SingleListView';
+import SingleStatsView from '../items/views/SingleStatsView';
+import SingleInfoView from '../items/views/SingleInfoView';
+import I18n from '../../i18n/i18n';
+import AddButton from '../items/buttons/AddButton';
 
 let tempArray = [];
+let pointsArray = [];
 
 export default class TrainingScene extends Component {
   constructor(props) {
@@ -18,7 +22,17 @@ export default class TrainingScene extends Component {
       total: 0,
       pointsPerCurrentSet: [],
       sets: [],
+      amountOfShots: 0,
+      totalCountOfArrows: 0,
+      index: 1,
+      pointsArray: [],
     };
+    this.addSet = this.addSet.bind(this);
+    this.updateTotal = this.updateTotal.bind(this);
+  }
+
+  componentWillMount() {
+    this.count();
   }
 
   addSet() {
@@ -28,7 +42,12 @@ export default class TrainingScene extends Component {
     const { pointsPerCurrentSet } = this.state;
     realmService.addTrainingSet({ trainingId, pointsPerCurrentSet });
     tempArray = [];
-    this.setState({ sets: this.state.sets + 1 });
+    this.setState({
+      sets: this.state.sets + 1,
+      total: 0,
+      amountOfShots: 0,
+      totalCountOfArrows: 0,
+    }, () => this.count());
   }
 
   updateTotal(number) {
@@ -40,20 +59,30 @@ export default class TrainingScene extends Component {
     });
   }
 
-  renderItem = ({ item }) => {
+  count() {
     const { navigation } = this.props;
-    return (
-      <SetListItem
-        navigation={navigation}
-        points={item.points}
-        set={item}
-      />
-    );
-  };
+    const { training: { sets } } = navigation.state.params;
+    pointsArray = [];
+    sets.forEach((set) => {
+      set.points.forEach((point) => {
+        pointsArray.push(point.value);
+        this.setState({
+          amountOfShots: this.state.amountOfShots += 1,
+          totalCountOfArrows: this.state.totalCountOfArrows += point.value,
+          pointsArray,
+        });
+      });
+    });
+  }
 
   render() {
     const { navigation } = this.props;
     const { training } = navigation.state.params;
+    const {
+      amountOfShots, totalCountOfArrows, total, index, pointsArray,
+    } = this.state;
+    const average = totalCountOfArrows / amountOfShots;
+    const roundedAverage = Math.round(average * 100) / 100;
     return (
       <View style={generalStyles.sceneContainer}>
         <NavBar
@@ -61,58 +90,47 @@ export default class TrainingScene extends Component {
           navigation={navigation}
           goBack
         />
-        <View style={{ flexDirection: 'row' }}>
-          <PointButton
-            onPress={() => this.updateTotal(1)}
-            number={1}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(2)}
-            number={2}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(3)}
-            number={3}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(4)}
-            number={4}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(5)}
-            number={5}
-          />
-        </View>
-        <View style={{ flexDirection: 'row' }}>
-          <PointButton
-            onPress={() => this.updateTotal(6)}
-            number={6}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(7)}
-            number={7}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(8)}
-            number={8}
-          />
-          <PointButton
-            onPress={() => this.updateTotal(9)}
-            number={9}
-          />
-          <PointButton
-            onPress={() => this.addSet()}
-            number={10}
+        <View style={styles.viewsContainer}>
+          <View style={styles.pointsHeader}>
+            <Text style={styles.headerText}>{I18n.t('totalArrows')}: {amountOfShots}</Text>
+            <Text style={styles.headerText}>{I18n.t('totalPoints')}: {totalCountOfArrows}</Text>
+            <Text style={styles.headerText}>{I18n.t('average')}: {roundedAverage}</Text>
+          </View>
+          <View style={styles.tabBarHeader}>
+            <View style={styles.tabsRow}>
+              <TouchableHighlight onPress={() => this.setState({ index: 1 })}>
+                <View>
+                  <Text style={index === 1 ? styles.activeTab : styles.inactiveTab}>{I18n.t('list')}</Text>
+                </View>
+              </TouchableHighlight>
+              <TouchableHighlight onPress={() => this.setState({ index: 2 })}>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={index === 2 ? styles.activeTab : styles.inactiveTab}>{I18n.t('stats')}</Text>
+                </View>
+              </TouchableHighlight>
+              <TouchableHighlight onPress={() => this.setState({ index: 3 })}>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={index === 3 ? styles.activeTab : styles.inactiveTab}>{I18n.t('info')}</Text>
+                </View>
+              </TouchableHighlight>
+            </View>
+          </View>
+          <ScrollView>
+            {index === 1 && <SingleListView training={training} />}
+            {index === 2 && <SingleStatsView pointsArray={pointsArray} />}
+            {index === 3 && <SingleInfoView training={training} />}
+          </ScrollView>
+          <AddButton
+            onPress={() => {
+ navigation.navigate('Set', {
+              addSet: this.addSet,
+              updateTotal: this.updateTotal,
+              setLength: training.arrowsPerSet,
+            });
+}
+          }
           />
         </View>
-        <Text>{this.state.total}</Text>
-
-        <FlatList
-          data={training.sets}
-          keyExtractor={item => item.itemId}
-          renderItem={this.renderItem}
-          key={item => item.itemId}
-        />
       </View>
     );
   }

@@ -26,7 +26,7 @@ export default class ArrowsScene extends Component {
         />
         <AddButton onPress={() => { arrowStore.setShowAddArrowPopup(true); }} />
         <Text>
-          arrows
+          COMMING SOON
         </Text>
         {
           showAddArrowPopup && <NewArrowModal

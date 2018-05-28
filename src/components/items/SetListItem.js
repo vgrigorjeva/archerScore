@@ -5,7 +5,6 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-import realmService from '../../services/realmService';
 import styles from '../../styles/items/listItem';
 import PointButton from './PointButton';
 
@@ -20,20 +19,20 @@ export default class SetListItem extends Component {
   }
 
   render() {
+    const { onLongPress } = this.props;
     const { points, set } = this.state;
     const setId = set.itemId;
     return (
       <View style={styles.itemContainer}>
         <View>
           <TouchableHighlight
-            onLongPress={() => realmService.deleteSet({ setId })}
+            onLongPress={onLongPress}
           >
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+            <View style={styles.buttonsRow}>
               {points.map(point => (
                 <PointButton
                   number={point.value}
                   key={point}
-                  onPress={() => console.warn(point.value)}
                 />
             ))}
             </View>
@@ -47,5 +46,6 @@ export default class SetListItem extends Component {
 SetListItem.propTypes = {
   points: PropTypes.object.isRequired,
   set: PropTypes.object.isRequired,
+  onLongPress: PropTypes.func.isRequired,
 };
 

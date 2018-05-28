@@ -6,9 +6,11 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from '../../styles/items/listItem';
 import I18n from '../../i18n/i18n';
+import { colors } from '../../styles/general';
 
 export default class ShootingListItem extends Component {
   constructor(props) {
@@ -36,15 +38,18 @@ export default class ShootingListItem extends Component {
             }))}
             onLongPress={longPress}
           >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <View style={{ flexDirection: 'column' }}>
+            <View style={styles.shootingListItemInfo}>
+              <View style={styles.infoColumn}>
                 <Text style={styles.titleText}>
                   {item.name}
                 </Text>
                 <Text style={styles.dateText}>{date}</Text>
               </View>
-              <View style={{ flexDirection: 'column' }}>
+              <View style={styles.infoColumn}>
                 <Text style={styles.dateText}>{setsnumber} {I18n.t('sets')} x {arrowsPerSet} {I18n.t('arrows')}</Text>
+                <View style={{ alignSelf: 'flex-end' }}>
+                  {isTraining ? <Icon name="user" size={20} color={colors.white} /> : <Icon name="users" size={20} color={colors.white} />}
+                </View>
               </View>
             </View>
           </TouchableHighlight>

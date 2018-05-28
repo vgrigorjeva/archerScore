@@ -4,13 +4,15 @@ import { inject, observer } from 'mobx-react/native';
 import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
-import styles from '../../styles/scenes/addCompetition';
+import styles from '../../styles/scenes/listScene';
 import AddButton from '../items/buttons/AddButton';
 import NewCompetitionModal from '../modals/NewCompetitionModal';
 import NavBar from '../items/Navbar';
 import RealmService from '../../services/realmService';
 import ShootingListItem from '../items/ShootingListItem';
 import I18n from '../../i18n/i18n';
+
+let competitions = [];
 
 @inject('competitionStore')
 @observer
@@ -24,12 +26,17 @@ export default class CompetitionsListScene extends Component {
   }
 
   componentWillMount() {
-    const competitions = RealmService.getCompetitions();
+    competitions = RealmService.getCompetitions();
     competitions.addListener(this.onChange);
     this.setState({
       competitions,
     });
   }
+
+  componentWillUnmount() {
+    competitions.removeAllListeners();
+  }
+
 
   onChange() {
     this.setState({
@@ -61,7 +68,7 @@ export default class CompetitionsListScene extends Component {
           navigation={navigation}
           goBack={false}
         />
-        <View style={{ marginTop: 5 }}>
+        <View style={styles.viewMargin}>
           <FlatList
             data={competitions}
             keyExtractor={item => item.itemId}

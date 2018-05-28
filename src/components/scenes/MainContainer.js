@@ -10,6 +10,7 @@ import TrainingScene from '../scenes/TrainingScene';
 import TrainingsListScene from '../scenes/TrainingsListScene';
 import CompetitionScene from '../scenes/CompetitionScene';
 import CompetitionsListScene from '../scenes/CompetitionsListScene';
+import SetScene from '../scenes/SetScene';
 import { colors, fonts } from '../../styles/general';
 import I18n from '../../i18n/i18n';
 
@@ -20,6 +21,12 @@ const TrainingStack = StackNavigator(
     },
     Training: {
       screen: TrainingScene,
+      navigationOptions: {
+        tabBarVisible: false,
+      },
+    },
+    Set: {
+      screen: SetScene,
       navigationOptions: {
         tabBarVisible: false,
       },

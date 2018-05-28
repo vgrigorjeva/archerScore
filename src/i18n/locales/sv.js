@@ -18,5 +18,18 @@ export default {
   competitions: 'TÄVLINGAR',
   sets: 'omgångar',
   arrows: 'pilar',
+  totalArrows: 'Totalt pilar',
+  totalPoints: 'Totalt poäng',
+  average: 'Medelvärde',
+  list: 'Lista',
+  stats: 'Statistik',
+  info: 'Information',
+  newSet: 'NY SET',
+  addSet: 'LÄGG TILL SET',
+  save: 'SPARA',
+  chooseDistance: 'Avtånd',
+  chooseArrowsPerSet: 'Pilar per set',
+  chooseEnvironment: 'Omgivning',
+  targetType: 'Tapet',
 };
 
