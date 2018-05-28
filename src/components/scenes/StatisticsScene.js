@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import { VictoryPie } from 'victory-native';
-
 
 import generalStyles from '../../styles/general';
 import styles from '../../styles/scenes/statistics';
@@ -19,13 +17,7 @@ export default class StatisticsScene extends Component {
           navigation={navigation}
           goBack={false}
         />
-        <VictoryPie
-          data={[
-    { x: 'Cats', y: 35 },
-    { x: 'Dogs', y: 4 },
-    { x: 'Birds', y: 55 },
-  ]}
-        />
+       <Text>COMMING SOON</Text>
       </View>
     );
   }

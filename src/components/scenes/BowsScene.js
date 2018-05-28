@@ -24,7 +24,7 @@ export default class BowsScene extends Component {
           goBack={false}
         />
         <Text>
-          bows
+          COMMING SOON
         </Text>
         {
           showAddBowPopup && <NewBowModal
