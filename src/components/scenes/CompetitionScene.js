@@ -118,13 +118,14 @@ export default class CompetitionScene extends Component {
           <ScrollView>
             {index === 1 && <SingleListView training={competition} />}
             {index === 2 && <SingleStatsView pointsArray={pointsArray} />}
-            {index === 3 && <SingleInfoView />}
+            {index === 3 && <SingleInfoView training={competition} />}
           </ScrollView>
           <AddButton
             onPress={() => {
  navigation.navigate('Set', {
               addSet: this.addSet,
               updateTotal: this.updateTotal,
+              setLength: competition.arrowsPerSet,
             });
 }
           }

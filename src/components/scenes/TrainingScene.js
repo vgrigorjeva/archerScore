@@ -118,13 +118,14 @@ export default class TrainingScene extends Component {
           <ScrollView>
             {index === 1 && <SingleListView training={training} />}
             {index === 2 && <SingleStatsView pointsArray={pointsArray} />}
-            {index === 3 && <SingleInfoView />}
+            {index === 3 && <SingleInfoView training={training} />}
           </ScrollView>
           <AddButton
             onPress={() => {
  navigation.navigate('Set', {
               addSet: this.addSet,
               updateTotal: this.updateTotal,
+              setLength: training.arrowsPerSet,
             });
 }
           }
