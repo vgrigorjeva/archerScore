@@ -31,5 +31,18 @@ export default {
   chooseArrowsPerSet: 'Arrows per set',
   chooseEnvironment: 'Environment',
   targetType: 'Target type',
+  bowType: 'Bow type',
+  brand: 'Brand',
+  size: 'Size',
+  drawWeight: 'Draw weight',
+  tiller: 'Tiller',
+  braceHeight: 'Brace height',
+  limbs: 'Limbs',
+  nockingPoint: 'Nocking point',
+  description: 'Description',
+  string: 'String',
+  length: 'Length',
+  material: 'Material',
+  weight: 'Weight',
 };
 

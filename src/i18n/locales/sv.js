@@ -31,5 +31,18 @@ export default {
   chooseArrowsPerSet: 'Pilar per set',
   chooseEnvironment: 'Omgivning',
   targetType: 'Tapet',
+  bowType: 'Båge',
+  brand: 'Märke',
+  size: 'Storlek',
+  drawWeight: 'Dragstyrka',
+  tiller: 'Tiller',
+  braceHeight: 'Stränghöjd',
+  limbs: 'Lemmar',
+  nockingPoint: 'Nockläge',
+  description: 'Beskrivning',
+  string: 'Sträng',
+  length: 'Längd',
+  material: 'Material',
+  weight: 'Vikt',
 };
 

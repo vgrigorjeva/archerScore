@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react/native';
 import PropTypes from 'prop-types';
 
 import generalStyles from '../../styles/general';
-import styles from '../../styles/scenes/addArrows';
+import styles from '../../styles/scenes/details';
 import Navbar from '../items/Navbar';
 import AddButton from '../items/buttons/AddButton';
 import NewArrowModal from '../modals/NewArrowModal';

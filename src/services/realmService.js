@@ -4,6 +4,8 @@ import uuidv1 from 'uuid';
 let realm = null;
 let training = null;
 let competition = null;
+let archersBow = null;
+let archersArrow = null;
 
 const TrainingSchema = {
   name: 'Training',
@@ -66,26 +68,28 @@ const BowSchema = {
     itemId: 'string',
     name: 'string',
     bowType: 'string',
-    brand: 'string',
-    size: 'int',
-    drawWeight: 'int',
-    tiller: 'int',
-    braceHeight: 'int',
-    limbs: 'string',
-    nockingPoint: 'string',
-    string: 'string',
-    description: 'string',
-    sightSettings: 'Sight[]',
+    brand: 'string?',
+    size: 'int?',
+    drawWeight: 'int?',
+    tiller: 'int?',
+    braceHeight: 'int?',
+    limbs: 'string?',
+    nockingPoint: 'string?',
+    string: 'string?',
+    description: 'string?',
   },
 };
 
-const SightSchema = {
-  name: 'Sight',
+const ArrowSchema = {
+  name: 'Arrow',
   primaryKey: 'itemId',
   properties: {
     itemId: 'string',
-    distance: 'int',
-    setting: 'string',
+    name: 'string',
+    length: 'string?',
+    material: 'string?',
+    weight: 'string?',
+    description: 'string?',
   },
 };
 
@@ -99,7 +103,7 @@ const getRealm = () =>
           TrainingSchema,
           CompetitionSchema,
           BowSchema,
-          SightSchema,
+          ArrowSchema,
           PointSchema,
           SetSchema,
         ],
@@ -238,6 +242,70 @@ const deleteSet = ({ setId }) => {
   });
 };
 
+const createBow = ({
+  name,
+  bowType,
+  brand,
+  size,
+  drawWeight,
+  tiller,
+  braceHeight,
+  limbs,
+  nockingPoint,
+  string,
+  description,
+  sightSettings,
+}) => {
+  realm.write(() => {
+    archersBow = realm.create(
+      'Bow',
+      {
+        itemId: uuidv1(),
+        name,
+        bowType,
+        brand,
+        size,
+        drawWeight,
+        tiller,
+        braceHeight,
+        limbs,
+        nockingPoint,
+        string,
+        description,
+        sightSettings,
+      },
+    );
+  });
+  return archersBow;
+};
+
+const getBows = () => realm.objects('Bow').sorted('name', true);
+
+const createArrow = ({
+  name,
+  length,
+  material,
+  weight,
+  description,
+}) => {
+  realm.write(() => {
+    archersArrow = realm.create(
+      'Bow',
+      {
+        itemId: uuidv1(),
+        name,
+        length,
+        material,
+        weight,
+        description,
+      },
+    );
+  });
+  return archersArrow;
+};
+
+const getArrows = () => realm.objects('Bow').sorted('name', true);
+
 export default {
   getRealm,
   createTraining,
@@ -251,4 +319,8 @@ export default {
   addTrainingSet,
   getTrainingSets,
   deleteSet,
+  createBow,
+  getBows,
+  createArrow,
+  getArrows,
 };

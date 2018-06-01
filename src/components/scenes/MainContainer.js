@@ -3,7 +3,9 @@ import { DrawerNavigator, StackNavigator, TabNavigator, TabBarBottom } from 'rea
 
 import SideBarScene from '../scenes/SideBarScene';
 import BowsScene from '../scenes/BowsScene';
+import BowDetailScene from '../scenes/BowDetailScene';
 import ArrowsScene from '../scenes/ArrowsScene';
+import ArrowDetailScene from '../scenes/ArrowDetailScene';
 import CalendarScene from '../scenes/CalendarScene';
 import StatisticsScene from '../scenes/StatisticsScene';
 import TrainingScene from '../scenes/TrainingScene';
@@ -99,6 +101,9 @@ const AddBowsNavigationStack = StackNavigator(
     AddBow: {
       screen: BowsScene,
     },
+    Bow: {
+      screen: BowDetailScene,
+    },
   },
   {
     navigationOptions: {
@@ -111,6 +116,9 @@ const AddArrowsNavigationStack = StackNavigator(
   {
     AddArrows: {
       screen: ArrowsScene,
+    },
+    Arrow: {
+      screen: ArrowDetailScene,
     },
   },
   {
