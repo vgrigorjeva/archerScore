@@ -68,7 +68,7 @@ export default class BowsScene extends Component {
           goBack={false}
         />
         {bows.length < 1 &&
-        <Text>
+        <Text style={styles.noEquipment}>
           {I18n.t('noBows')}
         </Text>}
         <View style={styles.viewMargin}>

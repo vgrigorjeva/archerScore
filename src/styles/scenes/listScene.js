@@ -50,5 +50,10 @@ export default StyleSheet.create({
   },
   pointsHeader: {
     backgroundColor: colors.black,
-  }
+  },
+  noEquipment: {
+    color: colors.black,
+    fontSize: 30,
+    fontFamily: fonts.main,
+  },
 });

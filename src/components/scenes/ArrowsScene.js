@@ -69,7 +69,7 @@ export default class ArrowsScene extends Component {
           goBack={false}
         />
         {arrows.length < 1 &&
-        <Text>
+        <Text style={styles.noEquipment}>
           {I18n.t('noArrows')}
         </Text>}
         <View style={styles.viewMargin}>
