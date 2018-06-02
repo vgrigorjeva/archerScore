@@ -21,6 +21,7 @@
     }],
     "linebreak-style": 0,
     "react/prefer-stateless-function": "off",
+    "class-methods-use-this": "off"
   },
   "env": {
     "jest": true
