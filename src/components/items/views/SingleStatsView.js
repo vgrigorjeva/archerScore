@@ -37,12 +37,13 @@ export default class SingleStatsView extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
         <VictoryPie
           data={arrayToRender}
           cornerRadius={10}
           padAngle={1}
-          labelRadius={160}
+          labelRadius={120}
+          width={300}
           labels={d => `${d.x}: ${d.y}`}
           style={{
             labels: {
