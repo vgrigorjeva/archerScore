@@ -7,7 +7,6 @@ import {
   ScrollView,
   TextInput,
   Picker,
-  Slider,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react/native';

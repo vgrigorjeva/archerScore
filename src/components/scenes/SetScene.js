@@ -42,7 +42,6 @@ export default class SetScene extends Component {
       this.setState({ disabledInput: true });
     }
   }
-  
 
   renderSetButtons(point) {
     const { navigation } = this.props;

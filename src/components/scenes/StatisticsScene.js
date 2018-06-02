@@ -17,7 +17,7 @@ export default class StatisticsScene extends Component {
           navigation={navigation}
           goBack={false}
         />
-       <Text>COMMING SOON</Text>
+        <Text>COMMING SOON</Text>
       </View>
     );
   }
