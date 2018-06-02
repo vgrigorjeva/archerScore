@@ -19,7 +19,7 @@ export default class ArrowDetailScene extends Component {
           goBack
         />
         <View style={styles.viewContainer}>
-          {arrow.length &&
+          {!!arrow.length &&
           <View>
             <Text style={styles.labelText}>{I18n.t('length')}</Text>
             <Text style={styles.dataText}>{arrow.length}</Text>

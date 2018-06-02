@@ -81,7 +81,10 @@ export default class CompetitionScene extends Component {
     const {
       amountOfShots, totalCountOfArrows, total, index, pointsArray,
     } = this.state;
-    const average = totalCountOfArrows / amountOfShots;
+    let average = totalCountOfArrows / amountOfShots;
+    if (amountOfShots === 0) {
+      average = 0;
+    }
     const roundedAverage = Math.round(average * 100) / 100;
     return (
       <View style={generalStyles.sceneContainer}>
