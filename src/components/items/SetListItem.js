@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
+import { colors } from '../../styles/general';
 import styles from '../../styles/items/listItem';
 import PointButton from './PointButton';
 
@@ -27,6 +28,7 @@ export default class SetListItem extends Component {
         <View>
           <TouchableHighlight
             onLongPress={onLongPress}
+            underlayColor={colors.underlayColor}
           >
             <View style={styles.buttonsRow}>
               {points.map(point => (

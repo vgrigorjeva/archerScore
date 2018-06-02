@@ -26,7 +26,7 @@ export default class ArrowsScene extends Component {
   }
 
   componentWillMount() {
-    arrows = RealmService.getBows();
+    arrows = RealmService.getArrows();
     arrows.addListener(this.onChange);
     this.setState({
       arrows,
@@ -50,7 +50,7 @@ export default class ArrowsScene extends Component {
       <ArrowListItem
         item={item}
         navigation={navigation}
-       // longPress={() => RealmService.deleteCompetition({ competitionId })}
+        longPress={() => RealmService.deleteArrow({ arrowId })}
         isTraining={false}
       />
     );

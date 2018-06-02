@@ -50,7 +50,7 @@ export default class BowsScene extends Component {
       <BowListItem
         item={item}
         navigation={navigation}
-       // longPress={() => RealmService.deleteCompetition({ competitionId })}
+        longPress={() => RealmService.deleteBow({ bowId })}
         isTraining={false}
       />
     );

@@ -281,6 +281,15 @@ const createBow = ({
 
 const getBows = () => realm.objects('Bow').sorted('name', true);
 
+const getCurrentBow = ({ bowId }) => realm.objects('Bow').filtered('itemId = $0', bowId)[0];
+
+const deleteBow = ({ bowId }) => {
+  const bow = getCurrentBow({ bowId });
+  realm.write(() => {
+    realm.delete(bow);
+  });
+};
+
 const createArrow = ({
   name,
   length,
@@ -306,6 +315,16 @@ const createArrow = ({
 
 const getArrows = () => realm.objects('Arrow').sorted('name', true);
 
+const getCurrentArrow = ({ arrowId }) => realm.objects('Arrow').filtered('itemId = $0', arrowId)[0];
+
+const deleteArrow = ({ arrowId }) => {
+  const arrow = getCurrentArrow({ arrowId });
+  realm.write(() => {
+    realm.delete(arrow);
+  });
+};
+
+
 export default {
   getRealm,
   createTraining,
@@ -321,6 +340,8 @@ export default {
   deleteSet,
   createBow,
   getBows,
+  deleteBow,
   createArrow,
   getArrows,
+  deleteArrow,
 };

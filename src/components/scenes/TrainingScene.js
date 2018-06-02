@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
-import generalStyles from '../../styles/general';
+import generalStyles, { colors } from '../../styles/general';
 import styles from '../../styles/scenes/listScene';
 import NavBar from '../items/Navbar';
 import realmService from '../../services/realmService';
@@ -101,17 +101,26 @@ export default class TrainingScene extends Component {
           </View>
           <View style={styles.tabBarHeader}>
             <View style={styles.tabsRow}>
-              <TouchableHighlight onPress={() => this.setState({ index: 1 })}>
+              <TouchableHighlight
+                onPress={() => this.setState({ index: 1 })}
+                underlayColor={colors.underlayColor}
+              >
                 <View>
                   <Text style={index === 1 ? styles.activeTab : styles.inactiveTab}>{I18n.t('list')}</Text>
                 </View>
               </TouchableHighlight>
-              <TouchableHighlight onPress={() => this.setState({ index: 2 })}>
+              <TouchableHighlight
+                onPress={() => this.setState({ index: 2 })}
+                underlayColor={colors.underlayColor}
+              >
                 <View style={{ flexDirection: 'row' }}>
                   <Text style={index === 2 ? styles.activeTab : styles.inactiveTab}>{I18n.t('stats')}</Text>
                 </View>
               </TouchableHighlight>
-              <TouchableHighlight onPress={() => this.setState({ index: 3 })}>
+              <TouchableHighlight
+                onPress={() => this.setState({ index: 3 })}
+                underlayColor={colors.underlayColor}
+              >
                 <View style={{ flexDirection: 'row' }}>
                   <Text style={index === 3 ? styles.activeTab : styles.inactiveTab}>{I18n.t('info')}</Text>
                 </View>

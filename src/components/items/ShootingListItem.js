@@ -37,6 +37,7 @@ export default class ShootingListItem extends Component {
               competition: item,
             }))}
             onLongPress={longPress}
+            underlayColor={colors.underlayColor}
           >
             <View style={styles.shootingListItemInfo}>
               <View style={styles.infoColumn}>

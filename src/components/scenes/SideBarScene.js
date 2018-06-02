@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableHighlight, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
+import { colors } from '../../styles/general';
 import styles from '../../styles/scenes/sidebar';
 import I18n from '../../i18n/i18n';
 
@@ -30,6 +31,7 @@ const sideBarItems = [
 export default class SideBarScene extends Component {
   renderItem = ({ item }) => (
     <TouchableHighlight
+      underlayColor={colors.underlayColor}
       onPress={() => {
         switch (item) {
           case myArrows:
