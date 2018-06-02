@@ -290,7 +290,7 @@ const createArrow = ({
 }) => {
   realm.write(() => {
     archersArrow = realm.create(
-      'Bow',
+      'Arrow',
       {
         itemId: uuidv1(),
         name,
@@ -304,7 +304,7 @@ const createArrow = ({
   return archersArrow;
 };
 
-const getArrows = () => realm.objects('Bow').sorted('name', true);
+const getArrows = () => realm.objects('Arrow').sorted('name', true);
 
 export default {
   getRealm,

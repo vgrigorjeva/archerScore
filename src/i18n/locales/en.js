@@ -44,5 +44,7 @@ export default {
   length: 'Length',
   material: 'Material',
   weight: 'Weight',
+  noArrows: 'No arrows are saved yet',
+  noBows: 'No bows are saved yet',
 };
 

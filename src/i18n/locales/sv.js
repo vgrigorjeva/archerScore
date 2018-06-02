@@ -44,5 +44,7 @@ export default {
   length: 'Längd',
   material: 'Material',
   weight: 'Vikt',
+  noArrows: 'Du har inga sparade pilar',
+  noBows: 'Du har inga sparade bågar',
 };
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
 import { inject, observer } from 'mobx-react/native';
 import PropTypes from 'prop-types';
 
@@ -67,6 +67,10 @@ export default class BowsScene extends Component {
           navigation={navigation}
           goBack={false}
         />
+        {bows.length < 1 &&
+        <Text>
+          {I18n.t('noBows')}
+        </Text>}
         <View style={styles.viewMargin}>
           <FlatList
             data={bows}
