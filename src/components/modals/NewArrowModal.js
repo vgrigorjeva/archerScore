@@ -68,7 +68,9 @@ export default class NewArrowModal extends Component {
               onPressDone={() => this.createArrow()}
 
             />
-            <KeyboardAvoidingView>
+            <KeyboardAvoidingView
+              behavior="padding"
+            >
               <ScrollView>
                 <View style={styles.inputContainer}>
                   <Text style={styles.labelText}>{I18n.t('name')}</Text>

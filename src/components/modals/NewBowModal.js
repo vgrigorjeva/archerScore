@@ -89,10 +89,7 @@ export default class NewBowModal extends Component {
             <KeyboardAvoidingView
               behavior="padding"
             >
-              <ScrollView
-                keyboardShouldPersistTaps="always"
-                style={styles.scrollView}
-              >
+              <ScrollView>
                 <View style={styles.inputContainer}>
                   <Text style={styles.labelText}>{I18n.t('name')}</Text>
                   <TextInput
