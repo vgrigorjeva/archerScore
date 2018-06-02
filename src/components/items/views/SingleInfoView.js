@@ -9,8 +9,8 @@ export default class SingleInfoView extends Component {
   render() {
     const { training } = this.props;
     const {
- distance, environment, targetType, arrowsPerSet, note 
-} = training;
+      distance, environment, targetType, arrowsPerSet, note,
+    } = training;
     return (
       <View style={styles.viewContainer}>
         <Text style={styles.labelText}>{I18n.t('chooseDistance')}</Text>
